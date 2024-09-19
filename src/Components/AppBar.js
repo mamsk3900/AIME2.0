@@ -16,20 +16,14 @@ import AdbIcon from '@mui/icons-material/Adb';
 import Logo from '../imgs/logo.png';
 
 const pages = ['RT', 'AIME', 'Defective Material', "Wiki", "Sales Documents", "UPS"];
+const pagesURLS = ["https://www.google.com", "https://www.bing.com"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  function handleCloseNavMenu(element){
+    window.open(pagesURLS[pages.indexOf(element)], "_self");
   };
 
   const handleCloseUserMenu = () => {
@@ -46,7 +40,7 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleCloseNavMenu(page)}
                 sx={{ my: 2, color: 'white', display: 'block', marginRight: 2, textDecoration: "underline"}}
               >
                 {page}

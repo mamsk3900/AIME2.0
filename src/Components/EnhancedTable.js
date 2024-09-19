@@ -22,15 +22,15 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 
-function createData(RT, AIME, DefectiveMaterial, Wiki, SalesDocuments, UPS) {
+function createData(WEB, Customer, NodeName, JobNum, Status, VLAN, BMCMAC, BMCIP, MCE, SUM) {
   return {
-    RT, AIME, DefectiveMaterial, Wiki, SalesDocuments, UPS
+    WEB, Customer, NodeName, JobNum, Status, VLAN, BMCMAC, BMCIP, MCE, SUM
   };
 }
 
 const rows = [
-  createData(1, 'Cupcake', 305, 3.7, 67, 4.3),
-  createData(2, 'Donut', 452, 25.0, 51, 4.9),
+  createData(18901, "Procter and Gamble", "node1", 5454, "idle", "1.0.0.0", "1.0.0.0.0", "1.0.0.0", "ok", "ok"),
+  createData(18902, "Procter and Gamble", "node1", 5455, "idle", "1.0.0.0", "1.0.0.0.0", "1.0.0.0", "ok", "ok"),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -122,23 +122,12 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
-          <Checkbox
-            color="primary"
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{
-              'aria-label': 'select all',
-            }}
-          />
-        </TableCell>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
-            padding={headCell.disablePadding ? 'none' : 'normal'}
+            align="center"
             sortDirection={orderBy === headCell.id ? order : false}
+            sx={{fontSize: "13px"}}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
@@ -196,7 +185,6 @@ function EnhancedTableToolbar(props) {
         <Typography
           sx={{ flex: '1 1 100%' }}
           variant="h6"
-          id="tableTitle"
           component="div"
         >
           AIME Control Panel
@@ -278,8 +266,8 @@ export default function EnhancedTable() {
   );
 
   return (
-    <Box id="EnhancedTableBox" sx={{ width: '100%' }}>
-      <Paper sx={{ width: '100%', mb: 2 }}>
+    <Box id="EnhancedTableBox" sx={{ width: '1250px', paddingTop: "30px",   margin: "auto" }}>
+      <Paper>
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer>
           <Table
@@ -303,35 +291,20 @@ export default function EnhancedTable() {
                 return (
                   <TableRow
                     hover
-                    onClick={(event) => handleClick(event, row.id)}
-                    role="checkbox"
                     aria-checked={isItemSelected}
                     tabIndex={-1}
                     key={row.id}
-                    selected={isItemSelected}
-                    sx={{ cursor: 'pointer' }}
                   >
-                    <TableCell padding="checkbox">
-                      <Checkbox
-                        color="primary"
-                        checked={isItemSelected}
-                        inputProps={{
-                          'aria-labelledby': labelId,
-                        }}
-                      />
-                    </TableCell>
-                    <TableCell
-                      component="th"
-                      id={labelId}
-                      scope="row"
-                      padding="none"
-                    >
-                      {row.name}
-                    </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="right">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell>
+                    <TableCell component="th" id={labelId} className='nodeCells' scope="row" padding="none" align="center">{row.WEB}</TableCell>
+                    <TableCell className='nodeCells' align="center">{row.Customer}</TableCell>
+                    <TableCell className='nodeCells' align="center">{row.NodeName}</TableCell>
+                    <TableCell className='nodeCells' align="center">{row.JobNum}</TableCell>
+                    <TableCell className='nodeCells' align="center">{row.Status}</TableCell>
+                    <TableCell className='nodeCells' align="center">{row.VLAN}</TableCell>
+                    <TableCell className='nodeCells' align="center">{row.BMCMAC}</TableCell>
+                    <TableCell className='nodeCells' align="center">{row.BMCIP}</TableCell>
+                    <TableCell className='nodeCells' align="center">{row.MCE}</TableCell>
+                    <TableCell className='nodeCells' align="center">{row.SUM}</TableCell>
                   </TableRow>
                 );
               })}

@@ -2,12 +2,6 @@
   text-align: center;
 }
 
-#EnhancedTableBox {
-  padding-top: 30px;
-  width: 1250px;
-  margin: auto;
-}
-
 #AspenLogo {
   margin: 10px;
 }
@@ -20,6 +14,14 @@
 
 .NavButtons {
   margin-right: 100px;
+}
+
+.ControlPanelTitles {
+  font-size: small;
+}
+
+.nodeCells {
+  white-space: nowrap;
 }
 
 

@@ -13,8 +13,13 @@
 }
 
 #NavItems {
-  position: absolute;
+  position: relative;
   display: flex;
+  margin-left: auto;
+}
+
+.NavButtons {
+  margin-right: 100px;
 }
 
 

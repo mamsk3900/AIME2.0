@@ -19,52 +19,27 @@ const pages = ['RT', 'AIME', 'Defective Material', "Wiki", "Sales Documents", "U
 const pagesURLS = ["https://www.google.com", "https://www.bing.com"];
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  function handleCloseNavMenu(element){
+  function handleButtonClicks(element){
     window.open(pagesURLS[pages.indexOf(element)], "_self");
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   return (
     <AppBar position="relative">
       <Container maxWidth="1">
         <Toolbar disableGutters>
-
-            <img src={Logo} id="AspenLogo"/> 
+          <img src={Logo} id="AspenLogo"/> 
           <Box id="NavItems" >
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={() => handleCloseNavMenu(page)}
+                onClick={() => handleButtonClicks(page)}
                 sx={{ my: 2, color: 'white', display: 'block', marginRight: 2, textDecoration: "underline"}}
               >
                 {page}
               </Button>
             ))}
-          </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-            </Menu>
           </Box>
         </Toolbar>
       </Container>

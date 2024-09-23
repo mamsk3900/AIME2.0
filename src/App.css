@@ -16,13 +16,6 @@
   margin-right: 100px;
 }
 
-.ControlPanelTitles {
-  font-size: small;
-}
-
-.nodeCells {
-  white-space: nowrap;
-}
 
 
 @media (prefers-reduced-motion: no-preference) {

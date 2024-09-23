@@ -16,7 +16,7 @@ const columns = [
   { field: 'BMCMAC', headerName: 'BMCMAC', width: 250, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
   { field: 'BMCIP', headerName: 'BMCIP', width: 250, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
   { field: 'MCE', headerName: 'MCE/EDAC', width: 150, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
-  { field: 'SUM', headerName: 'SUM', width: 150, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header', },
+  { field: 'SUM', headerName: 'SUM', width: 150, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
 ];
 
 const getBackgroundColor = (color, theme, coefficient) => ({
@@ -32,12 +32,14 @@ const getBackgroundColor = (color, theme, coefficient) => ({
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   '& .super-app-theme--0': {
     ...getBackgroundColor(theme.palette.info.main, theme, 0.7),
+    fontSize: "17px",
     '&:hover': {
       ...getBackgroundColor(theme.palette.info.main, theme, 0.6),
     },
   },
   '& .super-app-theme--1': {
     ...getBackgroundColor("#fff", theme, 0.7),
+    fontSize: "17px",
       '&:hover': {
         ...getBackgroundColor("#cccccc", theme, 0.6),
       },

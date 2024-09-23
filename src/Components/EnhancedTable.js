@@ -13,25 +13,9 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import DeleteIcon from '@mui/icons-material/Delete';
-import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
-
-function createData(WEB, Customer, NodeName, JobNum, Status, VLAN, BMCMAC, BMCIP, MCE, SUM) {
-  return {
-    WEB, Customer, NodeName, JobNum, Status, VLAN, BMCMAC, BMCIP, MCE, SUM
-  };
-}
-
-const rows = [
-  createData(18901, "Procter and Gamble", "node1", 5454, "idle", "1.0.0.0", "1.0.0.0.0", "1.0.0.0", "ok", "ok"),
-  createData(18902, "Procter and Gamble", "node1", 5455, "idle", "1.0.0.0", "1.0.0.0.0", "1.0.0.0", "ok", "ok"),
-];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -112,9 +96,9 @@ const headCells = [
   },
 ];
 
-function EnhancedTableHead(props) {
+function EnhancedTableHead(nodeList) {
   const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
-    props;
+    nodeList;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -198,7 +182,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default function EnhancedTable() {
+export default function EnhancedTable({nodeList}) {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -214,7 +198,7 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.id);
+      const newSelected = nodeList.map((n) => n.id);
       setSelected(newSelected);
       return;
     }
@@ -255,11 +239,11 @@ export default function EnhancedTable() {
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - nodeList.length) : 0;
 
   const visibleRows = React.useMemo(
     () =>
-      [...rows]
+      [...nodeList]
         .sort(getComparator(order, orderBy))
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
     [order, orderBy, page, rowsPerPage],
@@ -281,7 +265,7 @@ export default function EnhancedTable() {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={rows.length}
+              rowCount={nodeList.length}
             />
             <TableBody>
               {visibleRows.map((row, index) => {
@@ -323,7 +307,7 @@ export default function EnhancedTable() {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={rows.length}
+          count={nodeList.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

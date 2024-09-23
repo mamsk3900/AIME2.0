@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Paper } from '@mui/material';
+import { DataGrid } from '@mui/x-data-grid';
 
 
 const columns = [
@@ -23,7 +24,7 @@ export default function DataTable({info}) {
     <div>
       <h2 id="AIMETableTitle">AIME CONTROL PANEL</h2>
       <Paper sx={{ height: "auto", width: '75%', display: "flex", margin:"auto", marginTop: "1%" }}>
-      <DataTable
+      <DataGrid
       
       rows={info}
       columns={columns}

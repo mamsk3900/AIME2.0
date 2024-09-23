@@ -21,7 +21,7 @@ function ResponsiveAppBar() {
     <AppBar position="relative">
       <Container maxWidth="1">
         <Toolbar disableGutters>
-          <img src={Logo} id="AspenLogo"/> 
+          <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right in magenta'/> 
           <Box id="NavItems" >
             {pages.map((page) => (
               <Button

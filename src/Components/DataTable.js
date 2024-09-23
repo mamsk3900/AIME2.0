@@ -1,46 +1,31 @@
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
-import Paper from '@mui/material/Paper';
+import { Paper } from '@mui/material';
+
 
 const columns = [
-  { field: 'A', headerName: 'A#(WEB)', width: 85 },
-  { field: 'Customer', headerName: 'Customer', width: 250 },
-  { field: 'NodeName', headerName: 'NodeName', width: 200 },
-  {
-    field: 'JobNum',
-    headerName: 'Job/RMA#',
-    type: 'number',
-    width: 200,
-  },
-  {
-    field: 'Status',
-    headerName: 'Status',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-  },
-  { field: 'VLAN', headerName: 'VLAN', width: 200 },
-  { field: 'BMCMAC', headerName: 'BMCMAC', width: 200 },
-  { field: 'BMCIP', headerName: 'BMCIP', width: 200 },
-  { field: 'MCE', headerName: 'MCE/EDAC', width: 200 },
-  { field: 'SUM', headerName: 'SUM', width: 200 },
-];
-
-const rows = [
-  { id: 1, A: "c1", Customer: "P&G", JobNum: "123", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },
-  { id: 2, A: "c2", Customer: "P&G", JobNum: "124", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },
+  { field: 'A', headerName: 'A#(WEB)', width: 85, headerAlign: "center" },
+  { field: 'Customer', headerName: 'Customer', width: 250, headerAlign: "center" },
+  { field: 'NodeName', headerName: 'NodeName', width: 200, headerAlign: "center" },
+  { field: 'JobNum', headerName: 'Job/RMA#', type: 'number', width: 200, headerAlign: "center" },
+  { field: 'Status', headerName: 'Status', description: 'This column has a value getter and is not sortable.', width: 160, headerAlign: "center" },
+  { field: 'VLAN', headerName: 'VLAN', width: 200, headerAlign: "center"},
+  { field: 'BMCMAC', headerName: 'BMCMAC', width: 200, headerAlign: "center" },
+  { field: 'BMCIP', headerName: 'BMCIP', width: 200, headerAlign: "center" },
+  { field: 'MCE', headerName: 'MCE/EDAC', width: 200, headerAlign: "center" },
+  { field: 'SUM', headerName: 'SUM', width: 200, headerAlign: "center" },
 ];
 
 const paginationModel = { page: 0, pageSize: 5 };
 
-export default function DataTable() {
+export default function DataTable({info}) {
+
   return (
     <div>
       <h2 id="AIMETableTitle">AIME CONTROL PANEL</h2>
       <Paper sx={{ height: "auto", width: '75%', display: "flex", margin:"auto", marginTop: "1%" }}>
-      <DataGrid
+      <DataTable
       
-      rows={rows}
+      rows={info}
       columns={columns}
       initialState={{ pagination: { paginationModel } }}
       pageSizeOptions={[7, 14]}

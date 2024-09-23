@@ -96,9 +96,9 @@ const headCells = [
   },
 ];
 
-function EnhancedTableHead(nodeList) {
+function EnhancedTableHead(props) {
   const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
-    nodeList;
+    props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -182,7 +182,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default function EnhancedTable({nodeList}) {
+export default function EnhancedTable(nodeList) {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -241,13 +241,15 @@ export default function EnhancedTable({nodeList}) {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - nodeList.length) : 0;
 
-  const visibleRows = React.useMemo(
-    () =>
-      [...nodeList]
-        .sort(getComparator(order, orderBy))
-        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
-    [order, orderBy, page, rowsPerPage],
-  );
+    const visibleRows = React.useMemo(
+      () => {
+        if (!nodeList) return []; // or handle it appropriately
+        return [...nodeList]
+          .sort(getComparator(order, orderBy))
+          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+      },
+      [order, orderBy, page, rowsPerPage, nodeList],
+    );
 
   return (
     <Box id="EnhancedTableBox" sx={{ width: '1250px', paddingTop: "30px",   margin: "auto" }}>
@@ -269,13 +271,11 @@ export default function EnhancedTable({nodeList}) {
             />
             <TableBody>
               {visibleRows.map((row, index) => {
-                const isItemSelected = selected.includes(row.id);
                 const labelId = `enhanced-table-checkbox-${index}`;
 
                 return (
                   <TableRow
                     hover
-                    aria-checked={isItemSelected}
                     tabIndex={-1}
                     key={row.id}
                   >

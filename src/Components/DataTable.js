@@ -7,25 +7,23 @@ import { alignProperty } from '@mui/material/styles/cssUtils';
 
 
 const columns = [
-  { field: 'A', headerName: 'A#(WEB)', width: 100, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+  { field: 'A', headerName: 'A#(WEB)', width: 115, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
   { field: 'Customer', headerName: 'Customer', width: 250, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
   { field: 'NodeName', headerName: 'NodeName', width: 200, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
-  { field: 'JobNum', headerName: 'Job/RMA#', type: 'number', width: 200, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
-  { field: 'Status', headerName: 'Status', width: 160, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
-  { field: 'VLAN', headerName: 'VLAN', width: 200, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header'},
-  { field: 'BMCMAC', headerName: 'BMCMAC', width: 200, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
-  { field: 'BMCIP', headerName: 'BMCIP', width: 200, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
-  { field: 'MCE', headerName: 'MCE/EDAC', width: 200, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
-  { field: 'SUM', headerName: 'SUM', width: 200, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+  { field: 'JobNum', headerName: 'Job/RMA#', type: 'number', width: 150, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+  { field: 'Status', headerName: 'Status', width: 150, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+  { field: 'VLAN', headerName: 'VLAN', width: 250, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header'},
+  { field: 'BMCMAC', headerName: 'BMCMAC', width: 250, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+  { field: 'BMCIP', headerName: 'BMCIP', width: 250, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+  { field: 'MCE', headerName: 'MCE/EDAC', width: 150, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+  { field: 'SUM', headerName: 'SUM', width: 150, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header', },
 ];
-
-const paginationModel = { page: 0, pageSize: 7 };
 
 const getBackgroundColor = (color, theme, coefficient) => ({
   backgroundColor: darken(color, coefficient),
   ...theme.applyStyles('light', {
     backgroundColor: lighten(color, coefficient),
-    textAlign: "center"
+    textAlign: "center",
     
   }),
 });
@@ -51,13 +49,15 @@ export default function DataTable({info}) {
   return (
     <div>
       <h2 id="AIMETableTitle">AIME CONTROL PANEL</h2>
-      <Paper sx={{ height: "auto", width: '75%', display: "flex", margin:"auto", marginTop: "1%", '& .super-app-theme--header': { backgroundColor: '#555', color: "white"}}}>
+      <Paper sx={{ height: "auto", width: '1920px', margin:"auto", '& .super-app-theme--header': { backgroundColor: '#555', color: "white"}}}>
       <StyledDataGrid
+      autoHeight
       disableRowSelectionOnClick
+      disableColumnResize
       columns={columns}
       rows={info}
       sx={{ border: "2px solid lightgray", width: "auto"}}
-      getRowClassName={(params) => `super-app-theme--${params.row.id % 2}`}
+      getRowClassName={(params) => `super-app-theme--${params.row.id % 2}`}      
       />
     </Paper>
     </div>

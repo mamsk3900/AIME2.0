@@ -49,6 +49,9 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     },
     '& .MuiDataGrid-scrollbar': {
       display: "block"
+    },
+    '& .MuiDataGrid-columnSeparator:last-child': {
+      color: "gray"
     }
 }));
 
@@ -57,7 +60,7 @@ export default function DataTable({info}) {
   return (
     <div id="DataGridDiv">
       <h2 id="AIMETableTitle">AIME CONTROL PANEL</h2>
-      <Paper sx={{ height: "auto", width: '100%', margin:"auto", '& .super-app-theme--header': { backgroundColor: '#555', color: "white"}}}>
+      <Paper sx={{ height: "auto", width: '100%', margin:"auto", '& .super-app-theme--header': { backgroundColor: '#555', color: "white", }}}>
       <StyledDataGrid
       autoHeight
       disableRowSelectionOnClick

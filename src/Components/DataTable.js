@@ -43,7 +43,10 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
       '&:hover': {
         ...getBackgroundColor("#cccccc", theme, 0.6),
       },
-  }
+  },
+  '& .MuiDataGrid-cell': {
+    borderRight: '1px solid rgba(224, 224, 224, 1)', // Right border for cells
+  },
 }));
 
 export default function DataTable({info}) {

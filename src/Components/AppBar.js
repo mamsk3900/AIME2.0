@@ -18,16 +18,17 @@ function ResponsiveAppBar() {
 
 
   return (
-    <AppBar position="relative">
+    <AppBar position="relative" width="100%">
       <Container maxWidth="1">
         <Toolbar disableGutters>
           <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right in magenta'/> 
           <Box id="NavItems" >
             {pages.map((page) => (
               <Button
+                id="AppBarLinks"
                 key={page}
                 onClick={() => handleButtonClicks(page)}
-                sx={{ my: 2, fontSize: "15px", color: 'white', display: 'block', marginRight: 2, textDecoration: "underline"}}
+                sx={{ my: 2, fontSize: "100%", color: 'white', textDecoration: "underline", minWidth: "5%", minHeight: "1em"}}
               >
                 {page}
               </Button>

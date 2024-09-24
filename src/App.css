@@ -16,6 +16,10 @@
   margin-right: 100px;
 }
 
+#DataGridDiv {
+  max-width: 1920px;
+  margin: auto;
+}
 
 
 @media (prefers-reduced-motion: no-preference) {

@@ -20,6 +20,10 @@ function Home() {
   ])
   }, []);
 
+  useEffect(() => {
+    document.title = "AIME 2.0";
+  }, [])
+
   return (
     <div className="Home">
       <AppBar id="AppBar"/>

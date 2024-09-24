@@ -9,8 +9,8 @@ import { alignProperty } from '@mui/material/styles/cssUtils';
 const columns = [
   { field: 'A', headerName: 'A#(WEB)', width: 115, flex: 0, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
   { field: 'Customer', headerName: 'Customer', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
-  { field: 'NodeName', headerName: 'NodeName', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
-  { field: 'JobNum', headerName: 'Job/RMA#', type: 'number', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+  { field: 'NodeName', headerName: 'NodeName', editable: true, flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+  { field: 'JobNum', headerName: 'Job/RMA#', editable: true, type: 'number', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
   { field: 'Status', headerName: 'Status', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
   { field: 'VLAN', headerName: 'VLAN', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header'},
   { field: 'BMCMAC', headerName: 'BMCMAC', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },

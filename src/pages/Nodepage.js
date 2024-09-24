@@ -1,11 +1,18 @@
+import { useEffect } from 'react';
 import AppBar from '../Components/AppBar';
 
 
 function BlankAime() {
+    useEffect(() => {
+        document.title = "NodePage";
+    }, [])
 
     return (
         <div>
-            <title>fdfsd</title>
+            <html>
+            <title>fjdksl</title>
+
+            </html>
             <AppBar></AppBar>
 
         </div>

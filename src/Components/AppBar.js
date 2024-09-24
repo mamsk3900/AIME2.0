@@ -27,7 +27,7 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={() => handleButtonClicks(page)}
-                sx={{ my: 2, color: 'white', display: 'block', marginRight: 2, textDecoration: "underline"}}
+                sx={{ my: 2, fontSize: "15px", color: 'white', display: 'block', marginRight: 2, textDecoration: "underline"}}
               >
                 {page}
               </Button>

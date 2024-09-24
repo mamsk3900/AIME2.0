@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Logo from '../imgs/logo.png';
 
 const pages = ['RT', 'AIME', 'Defective Material', "Wiki", "Sales Documents", "UPS"];
-const pagesURLS = ["https://www.google.com", "https://www.bing.com"];
+const pagesURLS = ["http://support.private.aspsys.com/", "/", "http://aime.private.aspsys.com/defective_material.php", "http://wiki.private.aspsys.com/doku.php", "http://aime.private.aspsys.com/salesdocs/",  ];
 
 function ResponsiveAppBar() {
 

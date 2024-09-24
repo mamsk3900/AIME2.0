@@ -9,8 +9,8 @@ import { alignProperty } from '@mui/material/styles/cssUtils';
 const columns = [
   { field: 'A', headerName: 'A#(WEB)', width: 115, flex: 0, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
   { field: 'Customer', headerName: 'Customer', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
-  { field: 'NodeName', headerName: 'NodeName', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
-  { field: 'JobNum', headerName: 'Job/RMA#', type: 'number', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+  { field: 'NodeName', headerName: 'NodeName', editable: true, flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+  { field: 'JobNum', headerName: 'Job/RMA#', editable: true, type: 'number', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
   { field: 'Status', headerName: 'Status', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
   { field: 'VLAN', headerName: 'VLAN', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header'},
   { field: 'BMCMAC', headerName: 'BMCMAC', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
@@ -49,6 +49,9 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     },
     '& .MuiDataGrid-scrollbar': {
       display: "block"
+    },
+    '& .MuiDataGrid-columnSeparator:last-child': {
+      color: "gray"
     }
 }));
 
@@ -57,7 +60,7 @@ export default function DataTable({info}) {
   return (
     <div id="DataGridDiv">
       <h2 id="AIMETableTitle">AIME CONTROL PANEL</h2>
-      <Paper sx={{ height: "auto", width: '100%', margin:"auto", '& .super-app-theme--header': { backgroundColor: '#555', color: "white"}}}>
+      <Paper sx={{ height: "auto", width: '100%', margin:"auto", '& .super-app-theme--header': { backgroundColor: '#555', color: "white", }}}>
       <StyledDataGrid
       autoHeight
       disableRowSelectionOnClick

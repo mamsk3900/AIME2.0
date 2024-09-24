@@ -6,7 +6,8 @@ import AppBar from "./Components/AppBar";
 import { useState, useEffect } from 'react';
 
 function App() {
-  const rows = [
+  const [rows, setRows] = useState([])
+  useEffect(() => { setRows([
     { id: 1, A: "c1", Customer: "The official united states of america and the outlying states", NodeName: "node1", JobNum: "123", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },
     { id: 2, A: "c2", Customer: "P&G", NodeName: "node2", JobNum: "123", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },
     { id: 3, A: "c3", Customer: "P&G", NodeName: "node3", JobNum: "123", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },
@@ -18,14 +19,13 @@ function App() {
     { id: 9, A: "c9", Customer: "P&G", NodeName: "node9", JobNum: "123", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },
     { id: 10, A: "c10", Customer: "P&G", NodeName: "node10", JobNum: "124", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },
     { id: 11, A: "c11", Customer: "P&G", NodeName: "node11", JobNum: "124", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },
-
-  ];
+  ])
+  }, []);
 
   return (
     <div className="App">
       <AppBar id="AppBar"/>
       <DataTable info={rows} title={"AIME Control Table"} />
-      
     </div>
   );
 }

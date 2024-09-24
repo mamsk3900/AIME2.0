@@ -26,6 +26,11 @@
   margin: auto;
 }
 
+#page {
+  margin: auto;
+  min-width: 800px
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

@@ -8,13 +8,8 @@ function BlankAime() {
     }, [])
 
     return (
-        <div>
-            <html>
-            <title>fjdksl</title>
-
-            </html>
-            <AppBar></AppBar>
-
+        <div id="page">
+            <div>fdsaffd</div>
         </div>
     )
 }

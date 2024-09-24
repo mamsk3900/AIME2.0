@@ -8,6 +8,8 @@ import Blankaime from './pages/Nodepage';
 const App = () => {
   return (
     <Router>
+      <Link to="/">Home  </Link>
+      <Link to="/Nodepage">NodePage</Link>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/Nodepage' element={<Blankaime/>}/>

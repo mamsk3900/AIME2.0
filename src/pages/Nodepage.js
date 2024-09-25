@@ -1,12 +1,18 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import NodePageAppBar from '../Components/NodePageAppBar'
+import AccordionExpanded from '../Components/AccordionExpanded';
 
 
 
 function NodePage() {
+    const [AIMEaccordionContent, setAIMEAccordionContent] = useState({title: "", content: ""});
+    const [SYSaccordionContent, setSYSaccoridionContent] = useState({title:"", content:""});
     useEffect(() => {
         document.title = "NodePage";
+
+        setAIMEAccordionContent({title: "AIME INFO", content:"Test"})
+        setSYSaccoridionContent({title: "SYS info", content: "test"})
 
         const intervalID = setInterval(() => {
             let date = new Date();
@@ -38,6 +44,12 @@ function NodePage() {
             <NodePageAppBar></NodePageAppBar>
             <div id="clock">
                 <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
+            </div>
+            <div id="AIMEInfoDiv">
+                <AccordionExpanded info={AIMEaccordionContent}></AccordionExpanded>
+            </div>
+            <div id="SystemInfoDiv">
+                <AccordionExpanded info={SYSaccordionContent}></AccordionExpanded>
             </div>
         </div>
     )

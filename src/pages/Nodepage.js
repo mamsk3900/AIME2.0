@@ -4,16 +4,13 @@ import NodePageAppBar from '../Components/NodePageAppBar'
 import AccordionExpanded from '../Components/AccordionExpanded';
 
 
-
 function NodePage() {
-    const [AIMEaccordionContent, setAIMEAccordionContent] = useState({title: "", content: ""});
-    const [SYSaccordionContent, setSYSaccoridionContent] = useState({title:"", content:""});
-    useEffect(() => {
-        document.title = "NodePage";
 
-        setAIMEAccordionContent({title: "AIME INFO", content:"Test"})
-        setSYSaccoridionContent({title: "SYS info", content: "test"})
+    const [rows, setRows] = useState([]);
+    const [columns, setColumns] = useState([]);
 
+
+    function clockUpdate() {
         const intervalID = setInterval(() => {
             let date = new Date();
             let dateSpan = document.getElementById("dateSpan")
@@ -36,7 +33,19 @@ function NodePage() {
             dateSpan.innerHTML = result;
         })
         return () => clearInterval(intervalID);
-    }, [])
+    }
+
+    useEffect(() => {
+        document.title = "NodePage";
+
+        
+        clockUpdate()
+        
+        setRows([{ id: 11, A: "c11", Customer: "P&G", NodeName: "node11", JobNum: "124", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },])
+            
+        setColumns([])
+        })
+
 
     return (
 
@@ -46,10 +55,10 @@ function NodePage() {
                 <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
             </div>
             <div id="AIMEInfoDiv">
-                <AccordionExpanded info={AIMEaccordionContent}></AccordionExpanded>
+                <AccordionExpanded title={"AIME Info"} columns={columns} rows={rows}></AccordionExpanded>
             </div>
             <div id="SystemInfoDiv">
-                <AccordionExpanded info={SYSaccordionContent}></AccordionExpanded>
+                <AccordionExpanded title={"System Info"} columns={columns} rows={rows}></AccordionExpanded>
             </div>
         </div>
     )

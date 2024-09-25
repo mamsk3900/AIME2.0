@@ -13,7 +13,7 @@ const pagesURLS = ["http://support.private.aspsys.com/", "/", "http://aime.priva
 function ResponsiveAppBar() {
 
   function handleButtonClicks(element){
-    window.open(pagesURLS[pages.indexOf(element)], "_self");
+    window.open(pagesURLS[pages.indexOf(element)], "_blank"); //This makes "AIME" open a new tab of the same page which I don't like, but I won't fix it yet
   };
 
 

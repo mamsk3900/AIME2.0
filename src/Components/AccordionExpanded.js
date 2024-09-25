@@ -4,8 +4,11 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DataTable from '../Components/DataTable';
 
-export default function AccordionExpanded({info}) {
+
+export default function AccordionExpanded({title, columns, rows}) {
+  
   return (
     <div>
       <Accordion defaultExpanded>
@@ -14,12 +17,10 @@ export default function AccordionExpanded({info}) {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography sx={{display: "flex", margin: "auto"}}>{info.title}</Typography>
+          <Typography sx={{display: "flex", margin: "auto"}}>{title}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            {info.content}
-          </Typography>
+        <DataTable title="" columns={columns} rows={rows}></DataTable>
         </AccordionDetails>
       </Accordion>
     </div>

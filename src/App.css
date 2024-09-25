@@ -26,11 +26,26 @@
   margin: auto;
 }
 
-#page {
+#NodePage {
   margin: auto;
-  min-width: 800px
+  max-width: 1700px;
+  height: auto;
 }
 
+#NodePageContent {
+  height: auto;
+}
+
+.clock {
+  display: flex;
+  margin-left:100px
+}
+
+span {
+  display: flex;
+  margin: auto;
+  font-size: 1vw;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -62,7 +77,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 830px) {
   img {
       display: none; /* Hide the image below 600px */
   }

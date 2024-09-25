@@ -7,13 +7,13 @@ import Button from '@mui/material/Button';
 
 import Logo from '../imgs/logo.png';
 
-const pages = ['RT', 'AIME', 'Defective Material', "Wiki", "Sales Documents", "UPS"];
-const pagesURLS = ["http://support.private.aspsys.com/", "/", "http://aime.private.aspsys.com/defective_material.php", "http://wiki.private.aspsys.com/doku.php", "http://aime.private.aspsys.com/salesdocs/",  ];
+const pages = ['Home', 'Control Panel', 'Bill of Materials', "Reboot", "Power Off"];
+const pagesURLS = ["/NodePage", "/", "/", "/", "/",  ];
 
-function ResponsiveAppBar() {
+function NodePageAppBar() {
 
   function handleButtonClicks(element){
-    window.open(pagesURLS[pages.indexOf(element)], "_blank"); //This makes "AIME" open a new tab of the same page which I don't like, but I won't fix it yet
+    window.open(pagesURLS[pages.indexOf(element)], "_blank"); //This makes "Home" open a new tab which I don't like, but I won't fix it yet
   };
 
 
@@ -39,4 +39,4 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default NodePageAppBar;

@@ -65,23 +65,19 @@ span {
 
 #QAButton {
   display: inline;
-  background-color: rgba(72, 72, 72, 0.358);
   margin-top: 20px;
   margin-right: 10%;
-  color: black;
 }
 
 #JobNumButton {
   display: inline;
-  background-color: rgba(72, 72, 72, 0.358);
   float: right;
   margin-top: 20px;
-  color: black;
 }
 
 #AIMETestsTable {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 5%;
   width: 1200px
 }
 

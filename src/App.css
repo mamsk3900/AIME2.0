@@ -28,23 +28,37 @@
 
 #NodePage {
   margin: auto;
-  max-width: 1700px;
+  max-width: 1920px;
   height: auto;
+  background-color: #F5F5F5;
 }
 
 #NodePageContent {
   height: auto;
 }
 
-.clock {
+#clock {
   display: flex;
-  margin-left:100px
+  margin-left: auto;
 }
 
 span {
   display: flex;
   margin: auto;
+  margin-top: 2vh;
   font-size: 1vw;
+}
+
+#AIMEInfoDiv {
+  width: 500px;
+  margin-left: 10%;
+  display: inline-block;
+}
+
+#SystemInfoDiv {
+  width: 500px;
+  margin-right: 10%;
+  float: right;
 }
 
 @media (prefers-reduced-motion: no-preference) {

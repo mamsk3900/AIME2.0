@@ -7,7 +7,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import DataTable from '../Components/DataTable';
 
 
-export default function AccordionExpanded({title, columns, rows}) {
+export default function AccordionExpanded({title, data, showTableBool = true, buttonCollection}) {
+  const columns = data[0];
+  const rows = data[1];
   
   return (
     <div>
@@ -20,7 +22,10 @@ export default function AccordionExpanded({title, columns, rows}) {
           <Typography sx={{display: "flex", margin: "auto"}}>{title}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-        <DataTable id="accordionTables" columns={columns} rows={rows} hideFooterBool={true} displayType={"none"} ></DataTable>
+          {showTableBool &&
+            <DataTable id="accordionTables" columns={columns} rows={rows} hideFooterBool={true} columnHeaderDisplayType={"none"} ></DataTable>
+          }
+          {buttonCollection}
         </AccordionDetails>
       </Accordion>
     </div>

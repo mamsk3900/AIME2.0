@@ -41,7 +41,7 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     }
 }));
 
-export default function DataTable({title, rows, columns}) {
+export default function DataTable({title, rows, columns, hideFooterBool}) {
 
   return (
     <div id="DataGridDiv">
@@ -51,7 +51,7 @@ export default function DataTable({title, rows, columns}) {
       autoHeight
       disableRowSelectionOnClick
       disableColumnResize
-      disable
+      hideFooter={hideFooterBool}
       columns={columns}
       rows={rows}
       sx={{ border: "2px solid lightgray", width: "auto"}}

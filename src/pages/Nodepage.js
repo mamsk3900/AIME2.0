@@ -43,7 +43,7 @@ function NodePage() {
         
         setRows([{ id: 11, A: "c11", Customer: "P&G", NodeName: "node11", JobNum: "124", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },])
             
-        setColumns([])
+        setColumns([""])
         })
 
 
@@ -55,13 +55,16 @@ function NodePage() {
                 <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
             </div>
             <div id="AIMEInfoDiv">
-                <AccordionExpanded title={"AIME Info"} columns={columns} rows={rows}></AccordionExpanded>
+                <AccordionExpanded title={"AIME Info"} columns={columns} rows={rows}/>
             <Button id="QAButton">Perform QA</Button>
             <Button id="JobNumButton">Set Job/RMA# and Nodename</Button>
             </div>
             <div id="SystemInfoDiv">
-                <AccordionExpanded title={"System Info"} columns={columns} rows={rows}></AccordionExpanded>
+                <AccordionExpanded title={"System Info"} columns={columns} rows={rows}/>
             </div>
+            <div id="AIMETestsTable">
+                <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} columns={columns} rows={rows}><Button>fdsf</Button></AccordionExpanded>
+                </div>
         </div>
     )
 }

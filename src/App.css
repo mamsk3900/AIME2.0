@@ -46,7 +46,8 @@ span {
   display: flex;
   margin: auto;
   margin-top: 2vh;
-  font-size: 1vw;
+  margin-bottom: 20px;
+  font-size: 30px;
 }
 
 #AIMEInfoDiv {
@@ -59,6 +60,7 @@ span {
   width: 500px;
   margin-right: 10%;
   float: right;
+  white-space: nowrap;
 }
 
 #QAButton {
@@ -75,6 +77,16 @@ span {
   float: right;
   margin-top: 20px;
   color: black;
+}
+
+#AIMETestsTable {
+  margin: auto;
+  margin-top: 50px;
+  width: 1200px
+}
+
+#accordionTables {
+  height: 1000px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

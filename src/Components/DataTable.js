@@ -41,7 +41,7 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     }
 }));
 
-export default function DataTable({title, rows, columns, hideFooterBool, displayType}) {
+export default function DataTable({title, rows, columns, hideFooterBool, columnHeaderDisplayType}) {
 
   return (
     <div id="DataGridDiv">
@@ -54,7 +54,7 @@ export default function DataTable({title, rows, columns, hideFooterBool, display
       hideFooter={hideFooterBool}
       columns={columns}
       rows={rows}
-      sx={{ border: "2px solid lightgray", width: "auto", '& .MuiDataGrid-columnHeader': {display: displayType}}}
+      sx={{ border: "2px solid lightgray", width: "auto", '& .MuiDataGrid-columnHeader': {display: columnHeaderDisplayType}}}
       getRowClassName={(params) => `super-app-theme--${params.row.id % 2}`}      
       />
     </Paper>

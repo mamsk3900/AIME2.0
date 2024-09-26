@@ -20,7 +20,7 @@ export default function AccordionExpanded({title, columns, rows}) {
           <Typography sx={{display: "flex", margin: "auto"}}>{title}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-        <DataTable title="" columns={columns} rows={rows}></DataTable>
+        <DataTable title="" columns={columns} rows={rows} hideFooterBool={true}></DataTable>
         </AccordionDetails>
       </Accordion>
     </div>

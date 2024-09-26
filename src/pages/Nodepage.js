@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import NodePageAppBar from '../Components/NodePageAppBar'
 import AccordionExpanded from '../Components/AccordionExpanded';
-
+import { Button } from '@mui/material';
 
 function NodePage() {
 
@@ -56,6 +56,8 @@ function NodePage() {
             </div>
             <div id="AIMEInfoDiv">
                 <AccordionExpanded title={"AIME Info"} columns={columns} rows={rows}></AccordionExpanded>
+            <Button id="QAButton">Perform QA</Button>
+            <Button id="JobNumButton">Set Job/RMA# and Nodename</Button>
             </div>
             <div id="SystemInfoDiv">
                 <AccordionExpanded title={"System Info"} columns={columns} rows={rows}></AccordionExpanded>

@@ -36,7 +36,7 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     },
     '& .MuiDataGrid-columnSeparator:last-child': {
       color: "gray"
-    }
+    },
 }));
 
 export default function DataTable({title, rows, columns, hideFooterBool, columnHeaderDisplayType}) {

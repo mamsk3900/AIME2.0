@@ -50,6 +50,15 @@ span {
   font-size: 30px;
 }
 
+#panel1-header {
+  background-color: #75ACE4;
+  border: 2px solid lightslategray;
+}
+
+#panel1-header:hover {
+  background-color: rgba(117, 172, 228, .8);
+}
+
 #AIMEInfoDiv {
   width: 500px;
   margin-left: 10%;
@@ -79,10 +88,6 @@ span {
   margin-bottom: 20px;
 }
 
-#accordionTables {
-  height: 1000px;
-}
-
 #logOutputBox {
   margin: auto;
   width: 1000px;
@@ -92,6 +97,26 @@ span {
   height: 500px;
   overflow-y: scroll;
 
+}
+
+#BOMPage {
+  margin: auto;
+  max-width: 1920px;
+  height: 100%;
+  background-color: #F5F5F5;
+}
+
+#BOMh1 {
+  text-align: center;
+}
+
+#BOMAccordionDiv {
+  margin: auto;
+  width: 75%
+}
+
+#SystemAccordion, #MotherboardAccordion {
+  display:list-item;
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -3,11 +3,13 @@ import { useEffect, useState } from 'react';
 import NodePageAppBar from '../Components/NodePageAppBar'
 import AccordionExpanded from '../Components/AccordionExpanded';
 import { Button } from '@mui/material';
+import DataTable from '../Components/DataTable';
 
 function NodePage() {
 
     const [rows, setRows] = useState([]);
     const [columns, setColumns] = useState([]);
+    const [buttons, setButtons] = useState([]);
 
 
     function clockUpdate() {
@@ -36,6 +38,8 @@ function NodePage() {
     }
 
     useEffect(() => {
+        let MCEstatus="success"
+        let EDACstatus="success"
         document.title = "NodePage";
 
         
@@ -43,7 +47,9 @@ function NodePage() {
         
         setRows([{ id: 11, A: "c11", Customer: "P&G", NodeName: "node11", JobNum: "124", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },])
             
-        setColumns([])
+        setColumns(["test", "status", "start time", "end time", "cycles", "log"])
+
+        setButtons([<Button variant="contained" sx={{marginRight: "10px"}} >STOP TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained">RESTART AIME TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={MCEstatus}>MCE</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={EDACstatus}>EDAC</Button>, <Button sx={{marginRight: "10px"}} variant="contained">STREAM LOG</Button>])
         })
 
 
@@ -55,13 +61,17 @@ function NodePage() {
                 <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
             </div>
             <div id="AIMEInfoDiv">
-                <AccordionExpanded title={"AIME Info"} columns={columns} rows={rows}></AccordionExpanded>
-            <Button id="QAButton">Perform QA</Button>
-            <Button id="JobNumButton">Set Job/RMA# and Nodename</Button>
+                <AccordionExpanded title={"AIME Info"} data={[[], rows]}/>
+            <Button variant="contained" id="QAButton">Perform QA</Button>
+            <Button variant="contained" id="JobNumButton">Set Job/RMA# and Nodename</Button>
             </div>
             <div id="SystemInfoDiv">
-                <AccordionExpanded title={"System Info"} columns={columns} rows={rows}></AccordionExpanded>
+                <AccordionExpanded title={"System Info"} data={[[], rows]}/>
             </div>
+            <div id="AIMETestsTable">
+                <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} data={[columns, rows]} showTableBool={false} buttonCollection={buttons}></AccordionExpanded>
+                <DataTable title={""} rows={rows} columns={columns} hideFooterBool={true}></DataTable>
+                </div>
         </div>
     )
 }

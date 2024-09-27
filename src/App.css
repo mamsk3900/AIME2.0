@@ -29,8 +29,9 @@
 #NodePage {
   margin: auto;
   max-width: 1920px;
-  height: auto;
+  height: 1000px;
   background-color: #F5F5F5;
+  overflow-x: auto;
 }
 
 #NodePageContent {
@@ -46,7 +47,8 @@ span {
   display: flex;
   margin: auto;
   margin-top: 2vh;
-  font-size: 1vw;
+  margin-bottom: 20px;
+  font-size: 30px;
 }
 
 #AIMEInfoDiv {
@@ -63,18 +65,24 @@ span {
 
 #QAButton {
   display: inline;
-  background-color: rgba(72, 72, 72, 0.358);
   margin-top: 20px;
   margin-right: 10%;
-  color: black;
 }
 
 #JobNumButton {
   display: inline;
-  background-color: rgba(72, 72, 72, 0.358);
   float: right;
   margin-top: 20px;
-  color: black;
+}
+
+#AIMETestsTable {
+  margin: auto;
+  margin-top: 5%;
+  width: 1200px;
+}
+
+#accordionTables {
+  height: 1000px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

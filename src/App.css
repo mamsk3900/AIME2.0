@@ -29,8 +29,9 @@
 #NodePage {
   margin: auto;
   max-width: 1920px;
-  height: auto;
+  height: 1000px;
   background-color: #F5F5F5;
+  overflow-x: auto;
 }
 
 #NodePageContent {
@@ -60,7 +61,6 @@ span {
   width: 500px;
   margin-right: 10%;
   float: right;
-  white-space: nowrap;
 }
 
 #QAButton {
@@ -78,7 +78,7 @@ span {
 #AIMETestsTable {
   margin: auto;
   margin-top: 5%;
-  width: 1200px
+  width: 1200px;
 }
 
 #accordionTables {

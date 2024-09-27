@@ -2,10 +2,12 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import NodePageAppBar from '../Components/NodePageAppBar'
 import AccordionExpanded from '../Components/AccordionExpanded';
-import { Button } from '@mui/material';
+import { Button, Paper, Box } from '@mui/material';
 import DataTable from '../Components/DataTable';
 
 function NodePage() {
+    const [paperHTMLContents, setPaperHTMLContents] = useState([]);
+    const [paperTextContents, setPaperTextContents] = useState([]);
 
     const [rows, setRows] = useState([]);
     const [columns, setColumns] = useState([]);
@@ -37,6 +39,14 @@ function NodePage() {
         return () => clearInterval(intervalID);
     }
 
+    function addToPaperContents(timeOfLog) {
+        setPaperHTMLContents((prevPaperContents) => [
+            ...prevPaperContents,
+            <p>{timeOfLog}{paperTextContents}<br></br></p>
+        ] 
+        );
+    }
+
     useEffect(() => {
         let MCEstatus="success"
         let EDACstatus="success"
@@ -49,8 +59,10 @@ function NodePage() {
             
         setColumns(["test", "status", "start time", "end time", "cycles", "log"])
 
-        setButtons([<Button variant="contained" sx={{marginRight: "10px"}} >STOP TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained">RESTART AIME TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={MCEstatus}>MCE</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={EDACstatus}>EDAC</Button>, <Button sx={{marginRight: "10px"}} variant="contained">STREAM LOG</Button>])
-        })
+        setButtons([<Button variant="contained" sx={{marginRight: "10px"}} >STOP TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained">RESTART AIME TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={MCEstatus}>MCE</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={EDACstatus}>EDAC</Button>, <Button sx={{marginRight: "10px"}} variant="contained">STREAM LOG</Button>]);
+
+        
+        }, [])
 
 
     return (
@@ -62,16 +74,24 @@ function NodePage() {
             </div>
             <div id="AIMEInfoDiv">
                 <AccordionExpanded title={"AIME Info"} data={[[], rows]}/>
-            <Button variant="contained" id="QAButton">Perform QA</Button>
-            <Button variant="contained" id="JobNumButton">Set Job/RMA# and Nodename</Button>
             </div>
             <div id="SystemInfoDiv">
                 <AccordionExpanded title={"System Info"} data={[[], rows]}/>
             </div>
+            <div id="buttonDiv">
+                <Button variant="contained" id="QAButton">Perform QA</Button>
+                <Button variant="contained" id="JobNumButton">Set Job/RMA# and Nodename</Button>
+            </div>
             <div id="AIMETestsTable">
                 <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} data={[columns, rows]} showTableBool={false} buttonCollection={buttons}></AccordionExpanded>
                 <DataTable title={""} rows={rows} columns={columns} hideFooterBool={true}></DataTable>
-                </div>
+            </div>
+            <Box
+            id="logOutputBox"  
+            >
+                <Paper id="logOutputPaper" elevation={3}>{paperHTMLContents}</Paper>
+
+            </Box>
         </div>
     )
 }

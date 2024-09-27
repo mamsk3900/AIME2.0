@@ -90,7 +90,6 @@ function NodePage() {
             id="logOutputBox"  
             >
                 <Paper id="logOutputPaper" elevation={3}>{paperHTMLContents}</Paper>
-
             </Box>
         </div>
     )

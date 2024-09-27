@@ -29,9 +29,8 @@
 #NodePage {
   margin: auto;
   max-width: 1920px;
-  height: 1000px;
+  height: 100%;
   background-color: #F5F5F5;
-  overflow-x: auto;
 }
 
 #NodePageContent {
@@ -46,7 +45,7 @@
 span {
   display: flex;
   margin: auto;
-  margin-top: 2vh;
+  margin-top: 15px;
   margin-bottom: 20px;
   font-size: 30px;
 }
@@ -58,31 +57,41 @@ span {
 }
 
 #SystemInfoDiv {
+  display: block;
+  float: right;
+  margin-right: 10%;
   width: 500px;
-  margin-right: 10%;
-  float: right;
 }
 
-#QAButton {
-  display: inline;
-  margin-top: 20px;
-  margin-right: 10%;
-}
 
-#JobNumButton {
-  display: inline;
-  float: right;
+#buttonDiv {
+  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 20px;
   margin-top: 20px;
 }
 
 #AIMETestsTable {
   margin: auto;
-  margin-top: 5%;
-  width: 1200px;
+  margin-top: auto;
+  width: 1400px;
+  margin-bottom: 20px;
 }
 
 #accordionTables {
   height: 1000px;
+}
+
+#logOutputBox {
+  margin: auto;
+  width: 1000px;
+}
+
+#logOutputPaper {
+  height: 500px;
+  overflow-y: scroll;
+
 }
 
 @media (prefers-reduced-motion: no-preference) {

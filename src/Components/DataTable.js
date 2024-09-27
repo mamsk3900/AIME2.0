@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { Paper, Tooltip } from '@mui/material';
+import { Paper } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { useDemoData } from '@mui/x-data-grid-generator';
 import { darken, lighten, styled } from '@mui/material/styles';
-import { alignProperty } from '@mui/material/styles/cssUtils';
 
 const getBackgroundColor = (color, theme, coefficient) => ({
   backgroundColor: darken(color, coefficient),

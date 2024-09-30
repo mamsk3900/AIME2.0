@@ -9,7 +9,76 @@ export class singleNode {
         BMCMAC = "",
         BMCIP = "",
         MCE = "",
-        SUM = ""
+        SUM = "",
+
+        QA = "",
+        CPUModel = "",
+        CPUFreq = "",
+        TotalMem = "",
+        UsedMem = "",
+        LoadAvg = "",
+        Uptime = "",
+        IPMILogs = "",
+        test = {
+            "Disk": "",
+            "Memory": "",
+            "CPU/HPL": "",
+            "GPU": "",
+            "Network": "",
+            "EOD": "",
+            "Cycle": "",
+            "USB": "",
+            "IMPMI": ""
+        },
+        BOM = {
+            System: {
+                "Manufacturer": "",
+                "Model": "",
+                "Serial": "", 
+            },
+            Motherboard: {
+                "Manufacturer": "",
+                "Model": "",
+                "Serial": "",   
+            },
+            BIOS: {
+                "Vendor": "",
+                "Version": "",
+                "ReleaseDate": "",
+            },
+            CPU: {
+                "Model": "",
+                "MHZ": "",
+                "PhysicalCPUS": "",
+                "CoreCount": "",
+            },
+            DIMMs: {
+                "dimm": ""
+            },
+            GPU: "",
+            StorageDevices: {
+                "HardDrive": "",
+                "TotalDiskCount": "",
+                "TotalRegular": "",
+            },
+            StorageControllers: [],
+            Network: {
+                controllers: [],
+                eth0: "",
+                eth1: "",
+            },
+            Display: "",
+            PSPorts: "",
+            IPMI: {
+                "InterfaceType": "",
+                "SpecificationVersion": "",
+                "I2CAddress": "",
+                "NVStorageDevices": "",
+                "BaseAddress": "",
+                "RegisterSpacing": ""
+            }
+                   }
+
     ){
         this._AHash = AHash;
         this._Customer = Customer;

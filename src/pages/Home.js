@@ -15,6 +15,7 @@ import {Motherboard} from '../Classes/Motherboard';
 import {BIOS} from '../Classes/BIOS';
 import {IPMI} from '../Classes/IPMI';
 import { HardDrive } from '../Classes/HardDrive';
+import { Network } from '../Classes/Network';
 
 
 function Home() {
@@ -51,8 +52,16 @@ function Home() {
 
   }
 
+  function createNetwork() {
+    const network1 = new Network("01:00.0 Infiniband controller: Mellanox Technologies MT2910 Family [ConnectX-7]", " 02:00.0 Ethernet controller: Intel Corporation Ethernet Controller X710 for 10GBASE-T (rev 02)", " 02:00.1 Ethernet controller: Intel Corporation Ethernet Controller X710 for 10GBASE-T (rev 02)",
+       "eth0: connected to eth0 Intel X710 ethernet (i40e), A0:36:BC:CA:D2:E5, hw, port a036bccad2e5, mtu 1500 ip4 default inet4 172.19.213.209/16 route4 default via 172.19.255.254 metric 0	route4 172.19.0.0/16 metric 0	route4 172.19.0.0/16 metric 100	route4 default via 172.19.255.254 metric 100",
+       "usb0: disconnected American Megatrends Virtual Ethernet. 1 connection available	ethernet (cdc_ether), 2E:10:96:9C:E9:DE, hw, mtu 1500", 
+      "eth1: unavailable Intel X710	ethernet (i40e), A0:36:BC:CA:D2:E6, hw, port a036bccad2e6, mtu 1500");
+      return network1;
+  }
+
   function createBOM() {
-    const BOM1 = new BOM("Summary", createSystem(), createMotherboard(), createCPU(), createBIOS(), createMemInfo(), "GPU", createStorageDevice(), "Storage Controller",  "Network", "Display", "None found!", createIPMI() ) //might need to make a class for GPU, Network
+    const BOM1 = new BOM("Summary", createSystem(), createMotherboard(), createCPU(), createBIOS(), createMemInfo(), "GPU", createStorageDevice(), "Storage Controller",  createNetwork, "Display", "None found!", createIPMI() ) //might need to make a class for GPU, Network
     return BOM1; 
   }
 

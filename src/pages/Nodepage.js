@@ -15,9 +15,9 @@ function NodePage() {
 
 
     function clockUpdate() {
+        let dateSpan = document.getElementById("dateSpan")
         const intervalID = setInterval(() => {
             let date = new Date();
-            let dateSpan = document.getElementById("dateSpan")
     
             const options = 
                 {

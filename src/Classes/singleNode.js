@@ -1,3 +1,5 @@
+import { ThreeSixty } from "@mui/icons-material";
+
 export class singleNode {
     constructor(
         AHash = "",
@@ -10,16 +12,13 @@ export class singleNode {
         BMCIP = "",
         MCE = "",
         SUM = "",
-
         QA = "",
-        CPUModel = "",
-        CPUFreq = "",
-        TotalMem = "",
+        CPU = "",
         UsedMem = "",
         LoadAvg = "",
         Uptime = "",
         IPMILogs = "",
-        test = {
+        Tests = {
             "Disk": "",
             "Memory": "",
             "CPU/HPL": "",
@@ -30,54 +29,7 @@ export class singleNode {
             "USB": "",
             "IMPMI": ""
         },
-        BOM = {
-            System: {
-                "Manufacturer": "",
-                "Model": "",
-                "Serial": "", 
-            },
-            Motherboard: {
-                "Manufacturer": "",
-                "Model": "",
-                "Serial": "",   
-            },
-            BIOS: {
-                "Vendor": "",
-                "Version": "",
-                "ReleaseDate": "",
-            },
-            CPU: {
-                "Model": "",
-                "MHZ": "",
-                "PhysicalCPUS": "",
-                "CoreCount": "",
-            },
-            DIMMs: {
-                "dimm": ""
-            },
-            GPU: "",
-            StorageDevices: {
-                "HardDrive": "",
-                "TotalDiskCount": "",
-                "TotalRegular": "",
-            },
-            StorageControllers: [],
-            Network: {
-                controllers: [],
-                eth0: "",
-                eth1: "",
-            },
-            Display: "",
-            PSPorts: "",
-            IPMI: {
-                "InterfaceType": "",
-                "SpecificationVersion": "",
-                "I2CAddress": "",
-                "NVStorageDevices": "",
-                "BaseAddress": "",
-                "RegisterSpacing": ""
-            }
-                   }
+        BOM = "",
 
     ){
         this._AHash = AHash;
@@ -90,6 +42,14 @@ export class singleNode {
         this._BMCIP = BMCIP;
         this._MCE = MCE;
         this._SUM = SUM;
+        this._QA = QA;
+        this._CPU = CPU;
+        this._UsedMem = UsedMem;
+        this._LoadAvg = LoadAvg;
+        this._Uptime = Uptime;
+        this._IPMILogs = IPMILogs;
+        this._Tests = Tests;
+        this._BOM = BOM;
     }
 
 
@@ -241,5 +201,66 @@ export class singleNode {
 
     set setSUM(newSUM) {
         this._SUM = newSUM;
+    }
+
+
+    get getQA() {
+        return this._QA
+    }
+
+    get getQAString() {
+        return `${this._QA}`;
+    }
+
+    set setQA(newQA) {
+        return this._QA = newQA;
+    }
+
+    get getCPU() {
+        return this._CPU;
+    }
+
+    get getCPUString() {
+        return `${this._CPU}`;
+    }
+
+    set setCPU(newCPU) {
+        return this._CPU = newCPU;
+    }
+
+    get getUsedMem() {
+        return this._UsedMem;
+    }
+
+    get getUsedMemString() {
+        return `${this._UsedMem}`
+    }
+
+    set setUsedMem(newUsedMem) {
+        return this._UsedMem = newUsedMem;
+    }
+
+    get getLoadAvg() {
+        return this._LoadAvg;
+    }
+
+    get getLoadAvgString() {
+        return `${this._LoadAvg}`;
+    }
+
+    set setLoadAvg(newLoadAvg) {
+        return this._LoadAvg = newLoadAvg;
+    }
+
+    get getUptime() {
+        return this._Uptime;
+    }
+
+    get getUptimeString() {
+        return `${this._Uptime}`;
+    }
+
+    set setUptime(newUptime) {
+        return this._Uptime = newUptime;
     }
 }

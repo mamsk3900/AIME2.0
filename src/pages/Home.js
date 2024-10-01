@@ -14,6 +14,7 @@ import {Tests} from '../Classes/Tests';
 import {Motherboard} from '../Classes/Motherboard';
 import {BIOS} from '../Classes/BIOS';
 import {IPMI} from '../Classes/IPMI';
+import { HardDrive } from '../Classes/HardDrive';
 
 
 function Home() {
@@ -86,8 +87,14 @@ function Home() {
   }
 
   function createStorageDevice() {
-    const storageDevice1 = new StorageDevice("/dev/nvme0n1", "KINGSTON SEDC1000BM8480G", "Regular/USB = 0  NVME = 1  CD/DVD = 1480 GB", "Total NVME of size 447.1G = 1") //this is going to need a subclass of harddrive
+    const HardDrive1 = createHardDrive(); 
+    const storageDevice1 = new StorageDevice(HardDrive1, "Regular/USB = 0  NVME = 1  CD/DVD = 1480 GB", "Total NVME of size 447.1G = 1") //this is going to need a subclass of harddrive
     return storageDevice1;
+  }
+
+  function createHardDrive() {
+    const hardDrive1 = new HardDrive("/dev/nvme01", "KINGSTON SEDC1000BM8480G", "480 GB", "50026B7686D2BC38");
+    return hardDrive1;
   }
 
   function createIPMI() {

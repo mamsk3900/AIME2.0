@@ -1,4 +1,4 @@
-export class TestParentClass {
+export class TestParent {
     constructor(
         Test="",
         Status="",

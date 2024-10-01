@@ -5,6 +5,7 @@ export class BOM {
         SystemInfo = "",
         Motherboard = "",
         CPU = "",
+        BIOS="",
         MemInfo = "",
         GPU = "",
         StorageDevices = "",
@@ -19,6 +20,7 @@ export class BOM {
         this._BOMSummary = BOMSummary;
         this._SystemInfo = SystemInfo;
         this._Motherboard = Motherboard;
+        this._BIOS = BIOS;
         this._CPU = CPU;
         this._MemInfo = MemInfo;
         this._GPU = GPU;
@@ -76,6 +78,14 @@ export class BOM {
 
     set setCPU(newCPU) {
         return this._CPU = newCPU;
+    }
+
+    get getBIOS() {
+        return this._BIOS;
+    }
+
+    set setBios(newBIOS) {
+        return this._BIOS = newBIOS; 
     }
 
     get getMemInfo() {

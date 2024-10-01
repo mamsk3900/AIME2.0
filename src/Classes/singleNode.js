@@ -1,6 +1,4 @@
-import { ThreeSixty } from "@mui/icons-material";
-
-export class singleNode {
+export class SingleNode {
     constructor(
         AHash = "",
         Customer = "",
@@ -18,17 +16,7 @@ export class singleNode {
         LoadAvg = "",
         Uptime = "",
         IPMILogs = "",
-        Tests = {
-            "Disk": "",
-            "Memory": "",
-            "CPU/HPL": "",
-            "GPU": "",
-            "Network": "",
-            "EOD": "",
-            "Cycle": "",
-            "USB": "",
-            "IMPMI": ""
-        },
+        Tests = "",
         BOM = "",
 
     ){

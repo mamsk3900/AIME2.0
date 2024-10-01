@@ -1,4 +1,4 @@
-export class StorageDevices {
+export class StorageDevice {
     constructor(
         HardDrive="",
         TotalDiskCount="",

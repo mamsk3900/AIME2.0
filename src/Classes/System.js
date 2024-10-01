@@ -1,4 +1,4 @@
-export class systemClass{
+export class System{
     constructor(
         Manufacturer= "",
         Model= "",

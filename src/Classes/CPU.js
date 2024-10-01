@@ -33,7 +33,7 @@ export class CPU {
     }
 
     set setMHz(newMHz) {
-        return this._MHz = MHz;
+        return this._MHz = newMHz;
     }
 
     get getPhysicalCPUs() {
@@ -45,7 +45,7 @@ export class CPU {
     }
 
     set setPhysicalCPUs(newCPUs) {
-        return this._PhysicalCPUs = PhysicalCPUs;
+        return this._PhysicalCPUs = newCPUs;
     }
 
     get getCoreCount() {

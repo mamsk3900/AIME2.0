@@ -69,7 +69,7 @@ export class IPMI {
     }
 
     get getBaseAddrString() {
-        `${this._BaseAddr}`;
+        return `${this._BaseAddr}`;
     }
 
     set setBaseAddr(newBaseAddr) {

@@ -8,17 +8,13 @@ import Button from '@mui/material/Button';
 import Logo from '../imgs/logo.png';
 
 const pages = ['Home', 'Control Panel', 'Bill of Materials', "Reboot", "Power Off"]; //In this branch I really want to fix the issue where it opens the same window in a new tab if you click the link. There are some other link paths that need to be fixed
-const pagesURLS = ["/NodePage", "/", "/", "/", "/",  ];
+const pagesURLS = ["/NodePage", "/", "/Bom", "/", "/",  ];
 
 function NodePageAppBar() {
+  console.log(window.location.href);
 
   function handleButtonClicks(element){
-    console.log(element);
-    if (element != window.location.href) {
-      window.open(pagesURLS[pages.indexOf(element)], "_blank");
-    } else {      
       window.open(pagesURLS[pages.indexOf(element)], "_target");
-    }
   };
 
 

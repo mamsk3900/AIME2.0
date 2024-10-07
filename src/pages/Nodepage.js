@@ -47,11 +47,21 @@ function NodePage() {
         );
     }
 
+    function getNodeHash(windowPathname) {
+        windowPathname = windowPathname.substring(1, windowPathname.length);
+        windowPathname = windowPathname.substring(windowPathname.indexOf("/"), windowPathname.length);
+        return windowPathname;
+
+    }
+
     useEffect(() => {
         let MCEstatus="success"
         let EDACstatus="success"
+        let windowPathname = window.location.pathname;
         document.title = "NodePage";
 
+        
+        localStorage.setItem("nodeAHash", getNodeHash(windowPathname));
         
         clockUpdate()
         

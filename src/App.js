@@ -9,13 +9,10 @@ import BOMPage from "./pages/BOMpage";
 const App = () => {
   return (
     <Router>
-      <Link to="/">Home  </Link>
-      <Link to="/Nodepage">NodePage</Link>
-      <Link to="/Bom">BOM</Link>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/Nodepage/:id' element={<NodePage/>}/>
-        <Route path='/Bom' element={<BOMPage/>}/>
+        <Route path='/Bom/:id' element={<BOMPage/>}/>
       </Routes>
     </Router>
   );

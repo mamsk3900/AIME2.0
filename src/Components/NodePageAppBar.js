@@ -4,18 +4,25 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import { useEffect, useState } from 'react';
 
 import Logo from '../imgs/logo.png';
 
 const pages = ['Home', 'Control Panel', 'Bill of Materials', "Reboot", "Power Off"]; //In this branch I really want to fix the issue where it opens the same window in a new tab if you click the link. There are some other link paths that need to be fixed
-const pagesURLS = ["/NodePage", "/", "/Bom", "/", "/",  ];
 
 function NodePageAppBar() {
+  const [pagesURLS, setPageUrls] = useState([]);
   console.log(window.location.href);
 
   function handleButtonClicks(element){
-      window.open(pagesURLS[pages.indexOf(element)], "_target");
+      window.open(pagesURLS[pages.indexOf(element)], "_self");
   };
+
+  useEffect(() => {
+    let id = localStorage.getItem("nodeAHash");
+    setPageUrls(["/NodePage"+id, "/", "/Bom"+id, "/", "/",  ])
+    console.log(id);
+  })
 
 
   return (

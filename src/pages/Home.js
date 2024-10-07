@@ -20,7 +20,7 @@ function Home() {
     { field: 'A', headerName: 'A#(WEB)', width: 115, flex: 0, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header',
 
       renderCell: (params) => (
-        <a href={`https://www.example.com/${params.value}`} target="_blank" rel="noopener noreferrer">
+        <a href={`/Nodepage/${params.value}`} target="_blank" rel="noopener noreferrer">
         {params.value}
       </a>
       ),

@@ -14,7 +14,7 @@ const App = () => {
       <Link to="/Bom">BOM</Link>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path='/Nodepage' element={<NodePage/>}/>
+        <Route path='/Nodepage/:id' element={<NodePage/>}/>
         <Route path='/Bom' element={<BOMPage/>}/>
       </Routes>
     </Router>

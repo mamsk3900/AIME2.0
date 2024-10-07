@@ -17,7 +17,14 @@ function Home() {
     { id: 2, A: "c2", Customer: "P&G", NodeName: "node2", JobNum: "123", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },
   ])
   setColumns([
-    { field: 'A', headerName: 'A#(WEB)', width: 115, flex: 0, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
+    { field: 'A', headerName: 'A#(WEB)', width: 115, flex: 0, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header',
+
+      renderCell: (params) => (
+        <a href={`https://www.example.com/${params.value}`} target="_blank" rel="noopener noreferrer">
+        {params.value}
+      </a>
+      ),
+     },
     { field: 'Customer', headerName: 'Customer', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
     { field: 'NodeName', headerName: 'NodeName', editable: true, flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },
     { field: 'JobNum', headerName: 'Job/RMA#', editable: true, type: 'number', flex: 1, headerAlign: "center", align: "center", headerClassName: 'super-app-theme--header' },

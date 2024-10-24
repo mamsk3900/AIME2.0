@@ -9,8 +9,6 @@ import {useState, useEffect} from 'react'
 
 
 export default function AccordionExpanded({title, data, showTableBool = true, buttonCollection}) {
-  console.log(data);
-
   return (
     <div>
       <Accordion defaultExpanded>

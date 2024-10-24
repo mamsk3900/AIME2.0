@@ -34,7 +34,7 @@ function NodePageAppBar() {
                 id="AppBarLinks"
                 key={page}
                 onClick={() => handleButtonClicks(page)}
-                sx={{ my: 2, fontSize: "100%", color: 'white', textDecoration: "underline", minWidth: "5%", minHeight: "1em"}}
+                sx={{ my: 2, fontSize: "100%", color: 'white', textDecoration: "underline", minWidth: "5%", minHeight: "1em", background: "#00000000"}}
               >
                 {page}
               </Button>

@@ -11,9 +11,7 @@ const pages = ['RT', 'Defective Material', "Wiki", "Sales Documents"];
 const pagesURLS = ["http://support.private.aspsys.com/", "http://aime.private.aspsys.com/defective_material.php", "http://wiki.private.aspsys.com/doku.php", "http://aime.private.aspsys.com/salesdocs/"  ];
 
 function ResponsiveAppBar() {
-  console.log(window.location.href);
   function handleButtonClicks(element){
-    console.log(element);
     if (element != window.location.href) {
       window.open(pagesURLS[pages.indexOf(element)], "_blank");
     } else {      

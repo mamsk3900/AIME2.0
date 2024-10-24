@@ -5,12 +5,10 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import DataTable from '../Components/DataTable';
+import {useState, useEffect} from 'react'
 
 
 export default function AccordionExpanded({title, data, showTableBool = true, buttonCollection}) {
-  const columns = data[0];
-  const rows = data[1];
-  
   return (
     <div>
       <Accordion defaultExpanded>
@@ -23,7 +21,7 @@ export default function AccordionExpanded({title, data, showTableBool = true, bu
         </AccordionSummary>
         <AccordionDetails>
           {showTableBool &&
-            <DataTable id="accordionTables" columns={columns} rows={rows} hideFooterBool={true} columnHeaderDisplayType={"none"} ></DataTable>
+            <DataTable id="accordionTables" columns={data[0]} rows={data[1]} hideFooterBool={true} columnHeaderDisplayType={"none"} ></DataTable>
           }
           {buttonCollection}
         </AccordionDetails>

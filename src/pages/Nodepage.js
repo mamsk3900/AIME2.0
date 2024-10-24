@@ -54,9 +54,14 @@ function NodePage() {
 
     }
 
+    function createData(id, name, shape) {
+        return {id, name, shape};
+
+    }
+
     useEffect(() => {
-        let MCEstatus="success"
-        let EDACstatus="success"
+        let MCEstatus="success";
+        let EDACstatus="success";
         let windowPathname = window.location.pathname;
         document.title = "NodePage";
 
@@ -65,12 +70,12 @@ function NodePage() {
         
         clockUpdate()
         
-        setRows([{ id: 11, A: "c11", Customer: "P&G", NodeName: "node11", JobNum: "124", Status: "Idle", VLAN: "0.0.0.0.0", BMCMAC: "0.0.0.0.0", BMCIP: "0.0.0.0.0", MCE: "OK", SUM: "OK" },])
+        setRows(createData(1, "chub", "round"));
             
-        setColumns(["test", "status", "start time", "end time", "cycles", "log"])
+        setColumns(["test", "status", "start time", "end time", "cycles", "log"]);
 
         setButtons([<Button variant="contained" sx={{marginRight: "10px"}} >STOP TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained">RESTART AIME TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={MCEstatus}>MCE</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={EDACstatus}>EDAC</Button>, <Button sx={{marginRight: "10px"}} variant="contained">STREAM LOG</Button>]);
-
+        //^This is for when the color of the MCE and EDAC buttons change color
         
         }, [])
 
@@ -83,7 +88,7 @@ function NodePage() {
                 <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
             </div>
             <div id="AIMEInfoDiv">
-                <AccordionExpanded title={"AIME Info"} data={[[], rows]}/>
+                <AccordionExpanded title={"AIME Info"} data={[["fdsfs"], rows]}/>
             </div>
             <div id="SystemInfoDiv">
                 <AccordionExpanded title={"System Info"} data={[[], rows]}/>

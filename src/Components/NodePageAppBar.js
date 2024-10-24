@@ -12,7 +12,6 @@ const pages = ['Home', 'Control Panel', 'Bill of Materials', "Reboot", "Power Of
 
 function NodePageAppBar() {
   const [pagesURLS, setPageUrls] = useState([]);
-  console.log(window.location.href);
 
   function handleButtonClicks(element){
       window.open(pagesURLS[pages.indexOf(element)], "_self");
@@ -21,7 +20,6 @@ function NodePageAppBar() {
   useEffect(() => {
     let id = localStorage.getItem("nodeAHash");
     setPageUrls(["/NodePage"+id, "/", "/Bom"+id, "/", "/",  ])
-    console.log(id);
   })
 
 

@@ -5,7 +5,7 @@ import AccordionExpanded from '../Components/AccordionExpanded';
 import { Button, Paper, Box } from '@mui/material';
 import DataTable from '../Components/DataTable';
 
-function NodePage() {
+function BomPage() {
 
     const [rows, setRows] = useState([]);
     const [columns, setColumns] = useState([]);
@@ -48,4 +48,4 @@ function NodePage() {
     )
 }
 
-export default NodePage;
+export default BomPage;

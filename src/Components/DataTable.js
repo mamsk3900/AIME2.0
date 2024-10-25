@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Paper } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { darken, lighten, styled } from '@mui/material/styles';
+import { useState, useEffect } from 'react';
 
 const getBackgroundColor = (color, theme, coefficient) => ({
   backgroundColor: darken(color, coefficient),
@@ -14,6 +15,7 @@ const getBackgroundColor = (color, theme, coefficient) => ({
 
 
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
+
   '& .super-app-theme--0': {
     ...getBackgroundColor(theme.palette.info.main, theme, 0.7),
     fontSize: "120%",
@@ -40,11 +42,26 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
 }));
 
 export default function DataTable({title, rows, columns, hideFooterBool, columnHeaderDisplayType}) {
+  const [dataTableHeaderColor, setDataTableHeaderColor] = useState("#1976D2");
+  const [checked, setChecked] = useState("");
+
+  useEffect(() => {
+    if (!localStorage.getItem("theme")) {
+      localStorage.setItem("theme", "light");
+      setDataTableHeaderColor("#1976D2");
+    } else if (localStorage.getItem("theme") === "dark") {
+      setChecked(false);
+      setDataTableHeaderColor("#1976D2");
+    } else if (localStorage.getItem("theme") === "light") {
+      setChecked(true);
+      setDataTableHeaderColor("#0F0F0F");
+    }
+  })
 
   return (
     <div id="DataGridDiv">
       <h2 id="AIMETableTitle" style={{textAlign: "center"}}>{title}</h2>
-      <Paper sx={{ height: "auto", width: '100%', margin:"auto", '& .super-app-theme--header': { backgroundColor: '#555', color: "white", }}}>
+      <Paper sx={{ height: "auto", width: '100%', margin:"auto", '& .super-app-theme--header': { backgroundColor: dataTableHeaderColor, color: "white" }}}>
       <StyledDataGrid
       autoHeight
       disableRowSelectionOnClick

@@ -17,10 +17,10 @@ const getBackgroundColor = (color, theme, coefficient) => ({
 const StyledDataGrid = styled(DataGrid)(({ theme, oddTableEntryColor, evenTableEntryColor }) => ({
 
   '& .super-app-theme--0': {
-    ...getBackgroundColor(evenTableEntryColor, theme, 0.8),
+    ...getBackgroundColor(evenTableEntryColor, theme, 0.7),
     fontSize: "120%",
     '&:hover': {
-      ...getBackgroundColor(evenTableEntryColor, theme, .9),
+      ...getBackgroundColor(evenTableEntryColor, theme, .6),
     },
   },
   '& .super-app-theme--1': {
@@ -54,13 +54,13 @@ export default function DataTable({title, rows, columns, hideFooterBool, columnH
     } else if (localStorage.getItem("theme") === "dark") {
       setChecked(false);
       setDataTableHeaderColor("#1976D2");
-      setOddTableEntryColor("#1976D2");
-      setEvenTableEntryColor("#ffffff");
+      setOddTableEntryColor("#ffffff");
+      setEvenTableEntryColor("#1976D2");
     } else if (localStorage.getItem("theme") === "light") {
       setChecked(true);
       setDataTableHeaderColor("#0F0F0F");
-      setOddTableEntryColor("#0F0F0F");
-      setEvenTableEntryColor("#000000");
+      setOddTableEntryColor("#ffffff");
+      setEvenTableEntryColor("#0F0F0F");
     }
   })
 

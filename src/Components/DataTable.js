@@ -14,20 +14,20 @@ const getBackgroundColor = (color, theme, coefficient) => ({
 });
 
 
-const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
+const StyledDataGrid = styled(DataGrid)(({ theme, oddTableEntryColor, evenTableEntryColor }) => ({
 
   '& .super-app-theme--0': {
-    ...getBackgroundColor(theme.palette.info.main, theme, 0.7),
+    ...getBackgroundColor(evenTableEntryColor, theme, 0.8),
     fontSize: "120%",
     '&:hover': {
-      ...getBackgroundColor(theme.palette.info.main, theme, 0.6),
+      ...getBackgroundColor(evenTableEntryColor, theme, .9),
     },
   },
   '& .super-app-theme--1': {
-    ...getBackgroundColor("#fff", theme, 0.7),
+    ...getBackgroundColor(oddTableEntryColor, theme, 0.6),
     fontSize: "120%",
       '&:hover': {
-        ...getBackgroundColor("#cccccc", theme, 0.6),
+        ...getBackgroundColor(oddTableEntryColor, theme, 0.5),
       },
     },
     '& .MuiDataGrid-cell': {
@@ -43,6 +43,8 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
 
 export default function DataTable({title, rows, columns, hideFooterBool, columnHeaderDisplayType}) {
   const [dataTableHeaderColor, setDataTableHeaderColor] = useState("#1976D2");
+  const [oddTableEntryColor, setOddTableEntryColor] = useState("#1976D2");
+  const [evenTableEntryColor, setEvenTableEntryColor] = useState("#ffffff");
   const [checked, setChecked] = useState("");
 
   useEffect(() => {
@@ -52,9 +54,13 @@ export default function DataTable({title, rows, columns, hideFooterBool, columnH
     } else if (localStorage.getItem("theme") === "dark") {
       setChecked(false);
       setDataTableHeaderColor("#1976D2");
+      setOddTableEntryColor("#1976D2");
+      setEvenTableEntryColor("#ffffff");
     } else if (localStorage.getItem("theme") === "light") {
       setChecked(true);
       setDataTableHeaderColor("#0F0F0F");
+      setOddTableEntryColor("#0F0F0F");
+      setEvenTableEntryColor("#000000");
     }
   })
 
@@ -69,6 +75,8 @@ export default function DataTable({title, rows, columns, hideFooterBool, columnH
       hideFooter={hideFooterBool}
       columns={columns}
       rows={rows}
+      oddTableEntryColor = {oddTableEntryColor}
+      evenTableEntryColor = {evenTableEntryColor}
       sx={{ border: "2px solid lightgray", width: "auto", '& .MuiDataGrid-columnHeader': {display: columnHeaderDisplayType}}}
       getRowClassName={(params) => `super-app-theme--${params.row.id % 2}`}      
       />

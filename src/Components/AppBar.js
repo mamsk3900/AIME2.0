@@ -6,14 +6,14 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Logo from '../imgs/logo.png';
 import DarkModeSwitch from './DarkModeSwitch';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const pages = ['RT', 'Defective Material', "Wiki", "Sales Documents"];
 const pagesURLS = ["http://support.private.aspsys.com/", "http://aime.private.aspsys.com/defective_material.php", "http://wiki.private.aspsys.com/doku.php", "http://aime.private.aspsys.com/salesdocs/"  ];
 
 
 function ResponsiveAppBar() {
-  const [appBarColor, setAppBarColor] = useState("#000000")
+  const [appBarColor, setAppBarColor] = useState("#1976D2")
   function handleButtonClicks(element){
     if (element != window.location.href) {
       window.open(pagesURLS[pages.indexOf(element)], "_blank");
@@ -23,27 +23,36 @@ function ResponsiveAppBar() {
  
   };
 
+  useEffect(() => {
+    if (!localStorage.getItem("theme")) {
+      localStorage.setItem("theme", "light");
+      setAppBarColor("#1976D2");
+    } else if (localStorage.getItem("theme") === "dark") {
+      setAppBarColor("#1976D2");
+    } else if (localStorage.getItem("theme") === "light") {
+      setAppBarColor("#0F0F0F");
+    }
+  })
+
   function handleThemeChange() {
     if (localStorage.getItem("theme") === "light") {
-      console.log(localStorage.getItem("theme"));
-      localStorage.setItem("theme", "dark")
-      setAppBarColor("#181A1B");
+      setAppBarColor("#0F0F0F");
+      return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {
-      localStorage.setItem("theme", "light")
-    } else {
-      localStorage.setItem("theme", "light");
+      setAppBarColor("#0F0F0F");
+      return localStorage.setItem("theme", "light");
     }
 
   }
 
 
   return (
-    <AppBar position="relative" width="100%" sx={{background: {appBarColor}}}>
-      <Container maxWidth="1">
+    <AppBar position="relative" width="100%">
+      <Container maxWidth="1" sx={{backgroundColor: appBarColor}}>
         <Toolbar disableGutters>
           <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right in magenta'/> 
           <Box id="NavItems" >
-            <DarkModeSwitch onClick={() => handleThemeChange()}sx={{marginBottom: "8%", overflow: "visible", width: "70px"}}/>
+            <DarkModeSwitch onClick={() => handleThemeChange()} sx={{marginBottom: "8%", overflow: "visible", width: "70px"}}/>
             {pages.map((page) => (
               <Button
                 id="AppBarLinks"

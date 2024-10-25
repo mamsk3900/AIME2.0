@@ -13,7 +13,8 @@ const pages = ['Home', 'Control Panel', 'Bill of Materials', "Reboot", "Power Of
 
 function NodePageAppBar() {
   const [pagesURLS, setPageUrls] = useState([]);
-  const [appBarColor, setAppBarColor] = useState("#1976D2")
+  const [appBarColor, setAppBarColor] = useState("#1976D2");
+  const [checked, setChecked] = useState("");
 
   function handleButtonClicks(element){
       window.open(pagesURLS[pages.indexOf(element)], "_self");
@@ -24,8 +25,10 @@ function NodePageAppBar() {
       localStorage.setItem("theme", "light");
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "dark") {
+      setChecked(false);
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "light") {
+      setChecked(true);
       setAppBarColor("#0F0F0F");
     }
 
@@ -51,7 +54,7 @@ function NodePageAppBar() {
         <Toolbar disableGutters>
           <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right in magenta'/> 
           <Box id="NavItems" >
-            <DarkModeSwitch onClick={() => handleThemeChange()} sx={{marginBottom: "8%", overflow: "visible", width: "70px"}}/>
+            <DarkModeSwitch onClick={() => handleThemeChange()} sx={{marginBottom: "8%", overflow: "visible", width: "70px"}} checked={checked}/>
             {pages.map((page) => (
               <Button
                 id="AppBarLinks"

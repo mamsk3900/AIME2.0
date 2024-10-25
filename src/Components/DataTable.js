@@ -45,6 +45,7 @@ export default function DataTable({title, rows, columns, hideFooterBool, columnH
   const [dataTableHeaderColor, setDataTableHeaderColor] = useState("#1976D2");
   const [oddTableEntryColor, setOddTableEntryColor] = useState("#1976D2");
   const [evenTableEntryColor, setEvenTableEntryColor] = useState("#ffffff");
+  const [titleColor, setTitleColor] = useState("black");
   const [checked, setChecked] = useState("");
 
   useEffect(() => {
@@ -56,17 +57,19 @@ export default function DataTable({title, rows, columns, hideFooterBool, columnH
       setDataTableHeaderColor("#1976D2");
       setOddTableEntryColor("#ffffff");
       setEvenTableEntryColor("#1976D2");
+      setTitleColor("black");
     } else if (localStorage.getItem("theme") === "light") {
       setChecked(true);
       setDataTableHeaderColor("#0F0F0F");
       setOddTableEntryColor("#ffffff");
       setEvenTableEntryColor("#0F0F0F");
+      setTitleColor("white");
     }
   })
 
   return (
-    <div id="DataGridDiv">
-      <h2 id="AIMETableTitle" style={{textAlign: "center"}}>{title}</h2>
+    <div id="DataGridDiv" >
+      <h2 id="AIMETableTitle" style={{textAlign: "center", color: titleColor}}>{title}</h2>
       <Paper sx={{ height: "auto", width: '100%', margin:"auto", '& .super-app-theme--header': { backgroundColor: dataTableHeaderColor, color: "white" }}}>
       <StyledDataGrid
       autoHeight

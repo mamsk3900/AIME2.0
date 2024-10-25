@@ -21,15 +21,19 @@ function NodePageAppBar() {
   };
 
   useEffect(() => {
+    const nodePage = document.getElementById("NodePage");
     if (!localStorage.getItem("theme")) {
       localStorage.setItem("theme", "light");
+      nodePage.style = "background-color: white" //nodePage background
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "dark") {
-      document.body.style = "background-color: light;"
+      document.body.style = "background-color: white;"
+      nodePage.style = "background-color: #F5F5F5" //nodePage background
       setChecked(false);
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "light") {
-      document.body.style = "background-color: black;"
+      document.body.style = "background-color: #262525;"
+      nodePage.style = "background-color: #1a1818" //nodePage background
       setChecked(true);
       setAppBarColor("#0F0F0F");
     }
@@ -39,13 +43,16 @@ function NodePageAppBar() {
   })
 
   function handleThemeChange() {
+    const nodePage = document.getElementById("NodePage");
     if (localStorage.getItem("theme") === "light") {
       setAppBarColor("#0F0F0F");
+      nodePage.style = "background-color: white" //nodePage background
       document.body.style = "background-color: white;"
       return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {
       setAppBarColor("#0F0F0F");
-      document.body.style = "background-color: black;"
+      nodePage.style = "background-color: #F5F5F5;" //nodePage background
+      document.body.style = "background-color: #262525;"
       return localStorage.setItem("theme", "light");
     }
 

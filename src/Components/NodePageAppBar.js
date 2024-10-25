@@ -28,6 +28,7 @@ function NodePageAppBar() {
       setChecked(false);
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "light") {
+      document.body.style = "background-color: black;"
       setChecked(true);
       setAppBarColor("#0F0F0F");
     }
@@ -39,9 +40,11 @@ function NodePageAppBar() {
   function handleThemeChange() {
     if (localStorage.getItem("theme") === "light") {
       setAppBarColor("#0F0F0F");
+      document.body.style = "background-color: white;"
       return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {
       setAppBarColor("#0F0F0F");
+      document.body.style = "background-color: black;"
       return localStorage.setItem("theme", "light");
     }
 

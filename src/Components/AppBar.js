@@ -32,6 +32,7 @@ function ResponsiveAppBar() {
       setChecked(false);
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "light") {
+      document.body.style = "background-color: black;"
       setChecked(true);
       setAppBarColor("#0F0F0F");
     }

@@ -13,6 +13,8 @@ function NodePage() {
     const [columns, setColumns] = useState([]);
     const [buttons, setButtons] = useState([]);
 
+    const [accordionSummaryColor, setAccordionSummaryColor] = useState("#75ACE4");
+
 
     function clockUpdate() {
         let dateSpan = document.getElementById("dateSpan")
@@ -77,6 +79,12 @@ function NodePage() {
         setButtons([<Button variant="contained" sx={{marginRight: "10px"}} >STOP TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained">RESTART AIME TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={MCEstatus}>MCE</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={EDACstatus}>EDAC</Button>, <Button sx={{marginRight: "10px"}} variant="contained">STREAM LOG</Button>]);
         //^This is for when the color of the MCE and EDAC buttons change color
         
+        if (!localStorage.getItem("theme")) {
+            localStorage.setItem("theme", "light");
+          } else if (localStorage.getItem("theme") === "dark") {
+          } else if (localStorage.getItem("theme") === "light") {
+          }
+
         }, [])
 
 
@@ -88,7 +96,7 @@ function NodePage() {
                 <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
             </div>
             <div id="AIMEInfoDiv">
-                <AccordionExpanded title={"AIME Info"} data={[["fdsfs"], rows]}/>
+                <AccordionExpanded sx={{backgroundColor: accordionSummaryColor}} title={"AIME Info"} data={[["fdsfs"], rows]}/>
             </div>
             <div id="SystemInfoDiv">
                 <AccordionExpanded title={"System Info"} data={[[], rows]}/>

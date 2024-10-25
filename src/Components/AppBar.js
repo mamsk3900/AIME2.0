@@ -33,7 +33,7 @@ function ResponsiveAppBar() {
       setChecked(false);
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "light") {
-      document.body.style = "background-color: black;"
+      document.body.style = "background-color: #262525;"
       setChecked(true);
       setAppBarColor("#0F0F0F");
     }
@@ -45,7 +45,7 @@ function ResponsiveAppBar() {
       setAppBarColor("#0F0F0F");
       return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {
-      document.body.style = "background-color: black;"
+      document.body.style = "background-color: #262525;"
       setAppBarColor("#0F0F0F");
       return localStorage.setItem("theme", "light");
     }

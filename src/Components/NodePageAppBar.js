@@ -25,6 +25,7 @@ function NodePageAppBar() {
       localStorage.setItem("theme", "light");
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "dark") {
+      document.body.style = "background-color: light;"
       setChecked(false);
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "light") {

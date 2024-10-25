@@ -29,6 +29,7 @@ function ResponsiveAppBar() {
       localStorage.setItem("theme", "light");
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "dark") {
+      document.body.style = "background-color: white;"
       setChecked(false);
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "light") {
@@ -40,12 +41,12 @@ function ResponsiveAppBar() {
 
   function handleThemeChange() {
     if (localStorage.getItem("theme") === "light") {
-      setAppBarColor("#0F0F0F");
       document.body.style = "background-color: white;"
+      setAppBarColor("#0F0F0F");
       return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {
-      setAppBarColor("#0F0F0F");
       document.body.style = "background-color: black;"
+      setAppBarColor("#0F0F0F");
       return localStorage.setItem("theme", "light");
     }
 

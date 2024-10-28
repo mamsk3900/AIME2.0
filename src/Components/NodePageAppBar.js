@@ -22,20 +22,32 @@ function NodePageAppBar() {
 
   useEffect(() => {
     const nodePage = document.getElementById("NodePage");
+    const dateSpan = document.getElementById("dateSpan");
     if (!localStorage.getItem("theme")) {
+      nodePage.style = "background-color: black" //nodePage background
       localStorage.setItem("theme", "light");
-      nodePage.style = "background-color: white" //nodePage background
+      dateSpan.style = "color: black";
+
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "dark") {
-      document.body.style = "background-color: white;"
       nodePage.style = "background-color: #F5F5F5" //nodePage background
+      document.body.style = "background-color: white;"
+
+      dateSpan.style = "color: black"
+
       setChecked(false);
       setAppBarColor("#1976D2");
+
+
     } else if (localStorage.getItem("theme") === "light") {
-      document.body.style = "background-color: #262525;"
       nodePage.style = "background-color: #1a1818" //nodePage background
+      document.body.style = "background-color: #262525;"
+
+      dateSpan.style = "color: white";
+
       setChecked(true);
       setAppBarColor("#0F0F0F");
+
     }
 
     let id = localStorage.getItem("nodeAHash");
@@ -44,15 +56,21 @@ function NodePageAppBar() {
 
   function handleThemeChange() {
     const nodePage = document.getElementById("NodePage");
+    const dateSpan = document.getElementById("dateSpan");
     if (localStorage.getItem("theme") === "light") {
       setAppBarColor("#0F0F0F");
       nodePage.style = "background-color: white" //nodePage background
       document.body.style = "background-color: white;"
+
+
+      dateSpan.style = "color: black";
       return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {
       setAppBarColor("#0F0F0F");
       nodePage.style = "background-color: #F5F5F5;" //nodePage background
       document.body.style = "background-color: #262525;"
+      
+      dateSpan.style = "color: white";
       return localStorage.setItem("theme", "light");
     }
 

@@ -9,6 +9,21 @@ import {useState, useEffect} from 'react'
 
 
 export default function AccordionExpanded({title, data, showTableBool = true, buttonCollection}) {
+  const [accordionSummaryColor, setAccordionSummaryColor] = useState("#1976D2");
+
+  function determineAccordionTheme() {
+    if (!localStorage.getItem("theme")) {
+      setAccordionSummaryColor("#1976D2");
+    } else if (localStorage.getItem("theme") === "dark") {
+      setAccordionSummaryColor("#527a7a");
+      
+    } else if (localStorage.getItem("theme") === "light") {
+      setAccordionSummaryColor("#1976D2");
+    }
+  }
+  useEffect(() => {
+    determineAccordionTheme();
+  })
   return (
     <div>
       <Accordion defaultExpanded>
@@ -16,6 +31,8 @@ export default function AccordionExpanded({title, data, showTableBool = true, bu
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
+          className="accordionSummaries"
+          sx={{backgroundColor: accordionSummaryColor}}
         >
           <Typography sx={{display: "flex", margin: "auto"}}>{title}</Typography>
         </AccordionSummary>

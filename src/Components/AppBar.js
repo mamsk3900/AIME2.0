@@ -24,21 +24,21 @@ function ResponsiveAppBar() {
     }
   };
 
-  useEffect(() => {
+  function determineTheme() {
     if (!localStorage.getItem("theme")) {
       localStorage.setItem("theme", "light");
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "dark") {
-      document.body.style = "background-color: white;"
       setChecked(false);
+      document.body.style = "background-color: white;"
       setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "light") {
-      document.body.style = "background-color: #262525;"
       setChecked(true);
+      document.body.style = "background-color: #262525;"
       setAppBarColor("#0F0F0F");
     }
-  })
-
+  }
+  
   function handleThemeChange() {
     if (localStorage.getItem("theme") === "light") {
       document.body.style = "background-color: white;"
@@ -51,6 +51,10 @@ function ResponsiveAppBar() {
     }
 
   }
+  useEffect(() => {
+    determineTheme();
+  })
+
 
 
   return (

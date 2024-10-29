@@ -8,6 +8,7 @@ import DarkModeSwitch from './DarkModeSwitch';
 import { useEffect, useState } from 'react';
 
 import Logo from '../imgs/logo.png';
+import { Tooltip } from '@mui/material';
 
 const pages = ['Home', 'Control Panel', 'Bill of Materials', "Reboot", "Power Off"]; //In this branch I really want to fix the issue where it opens the same window in a new tab if you click the link. There are some other link paths that need to be fixed
 
@@ -20,7 +21,7 @@ function NodePageAppBar() {
       window.open(pagesURLS[pages.indexOf(element)], "_self");
   };
 
-  useEffect(() => {
+  function determineTheme() {
     const nodePage = document.getElementById("NodePage");
     const dateSpan = document.getElementById("dateSpan");
     if (!localStorage.getItem("theme")) {
@@ -49,17 +50,14 @@ function NodePageAppBar() {
       setAppBarColor("#0F0F0F");
 
     }
-
-    let id = localStorage.getItem("nodeAHash");
-    setPageUrls(["/NodePage"+id, "/", "/Bom"+id, "/", "/",  ])
-  })
+  }
 
   function handleThemeChange() {
     const nodePage = document.getElementById("NodePage");
     const dateSpan = document.getElementById("dateSpan");
     if (localStorage.getItem("theme") === "light") {
       setAppBarColor("#0F0F0F");
-      nodePage.style = "background-color: white" //nodePage background
+      nodePage.style = "background-color: white"
       document.body.style = "background-color: white;"
 
 
@@ -67,7 +65,7 @@ function NodePageAppBar() {
       return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {
       setAppBarColor("#0F0F0F");
-      nodePage.style = "background-color: #F5F5F5;" //nodePage background
+      nodePage.style = "background-color: #F5F5F5;"
       document.body.style = "background-color: #262525;"
       
       dateSpan.style = "color: white";
@@ -76,14 +74,24 @@ function NodePageAppBar() {
 
   }
 
+  useEffect(() => {
+    determineTheme();
+
+    let id = localStorage.getItem("nodeAHash");
+    setPageUrls(["/NodePage"+id, "/", "/Bom"+id, "/", "/",  ])
+  })
+
+
 
   return (
     <AppBar position="relative" width="100%">
       <Container maxWidth="1" sx={{backgroundColor: appBarColor}}>
         <Toolbar disableGutters>
-          <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right in magenta'/> 
+          <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right, both in magenta'/> 
           <Box id="NavItems" >
-            <DarkModeSwitch onClick={() => handleThemeChange()} sx={{marginBottom: "8%", overflow: "visible", width: "70px"}} checked={checked}/>
+            <Tooltip title="Light mode/Dark mode">
+              <DarkModeSwitch onClick={() => handleThemeChange()} sx={{marginBottom: "8%", overflow: "visible", width: "70px"}} checked={checked}/>
+            </Tooltip>
             {pages.map((page) => (
               <Button
                 id="AppBarLinks"

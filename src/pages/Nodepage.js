@@ -13,9 +13,6 @@ function NodePage() {
     const [columns, setColumns] = useState([]);
     const [buttons, setButtons] = useState([]);
 
-    const [accordionSummaryColor, setAccordionSummaryColor] = useState("#75ACE4");
-    const [dateSpanColor, setDateSpanColor] = useState("black");
-
 
     function clockUpdate() {
         let dateSpan = document.getElementById("dateSpan")
@@ -91,7 +88,7 @@ function NodePage() {
                 <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
             </div>
             <div id="AIMEInfoDiv">
-                <AccordionExpanded title={"AIME Info"} data={[["fdsfs"], rows]}/>
+                <AccordionExpanded  title={"AIME Info"} data={[["fdsfs"], rows]}/>
             </div>
             <div id="SystemInfoDiv">
                 <AccordionExpanded title={"System Info"} data={[[], rows]}/>

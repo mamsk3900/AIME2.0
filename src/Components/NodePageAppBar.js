@@ -65,7 +65,7 @@ function NodePageAppBar() {
       return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {
       setAppBarColor("#0F0F0F");
-      nodePage.style = "background-color: #F5F5F5;"
+      nodePage.style = "color: #F5F5F5;"
       document.body.style = "background-color: #262525;"
       
       dateSpan.style = "color: white";

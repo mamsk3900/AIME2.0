@@ -60,7 +60,6 @@ function NodePageAppBar() {
       nodePage.style = "background-color: white"
       document.body.style = "background-color: white;"
 
-
       dateSpan.style = "color: black";
       return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {

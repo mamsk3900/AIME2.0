@@ -10,14 +10,6 @@ import {useState, useEffect} from 'react'
 
 export default function AccordionExpanded({title, data, showTableBool = true, buttonCollection}) {
   const [accordionSummaryColor, setAccordionSummaryColor] = useState("#1976D2");
-  
-  function changeAccordionTheme() {
-    if (localStorage.getItem("theme") === "dark") {
-      setAccordionSummaryColor("red");
-    } else if (localStorage.getItem("theme" === "light")) {
-      setAccordionSummaryColor("purple");
-    }
-  }
 
   function determineAccordionTheme() {
     if (!localStorage.getItem("theme")) {
@@ -28,10 +20,12 @@ export default function AccordionExpanded({title, data, showTableBool = true, bu
       setAccordionSummaryColor("#1976D2");
     }
   }
-  
+
   useEffect(() => {
     determineAccordionTheme();
   })
+
+
   return (
     <div>
       <Accordion defaultExpanded>

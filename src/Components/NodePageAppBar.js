@@ -24,14 +24,18 @@ function NodePageAppBar() {
   function determineTheme() {
     const nodePage = document.getElementById("NodePage");
     const dateSpan = document.getElementById("dateSpan");
+    const accordion1 = document.getElementById("panel1-header");
     if (!localStorage.getItem("theme")) {
-      nodePage.style = "background-color: black" //nodePage background
+      nodePage.style = "background-color: black"
       localStorage.setItem("theme", "light");
+
       dateSpan.style = "color: black";
 
       setAppBarColor("#1976D2");
+
+      accordion1.style = "background-color: ##852e2f;";
     } else if (localStorage.getItem("theme") === "dark") {
-      nodePage.style = "background-color: #F5F5F5" //nodePage background
+      nodePage.style = "background-color: #F5F5F5"
       document.body.style = "background-color: white;"
 
       dateSpan.style = "color: black"
@@ -39,9 +43,9 @@ function NodePageAppBar() {
       setChecked(false);
       setAppBarColor("#1976D2");
 
-
+      accordion1.style = "background-color: #1976D2;";
     } else if (localStorage.getItem("theme") === "light") {
-      nodePage.style = "background-color: #1a1818" //nodePage background
+      nodePage.style = "background-color: #1a1818"
       document.body.style = "background-color: #262525;"
 
       dateSpan.style = "color: white";
@@ -49,18 +53,22 @@ function NodePageAppBar() {
       setChecked(true);
       setAppBarColor("#0F0F0F");
 
+      accordion1.style = "#1976D2";
     }
   }
 
   function handleThemeChange() {
     const nodePage = document.getElementById("NodePage");
     const dateSpan = document.getElementById("dateSpan");
+    const accordion1 = document.getElementById("panel1-header");
     if (localStorage.getItem("theme") === "light") {
       setAppBarColor("#0F0F0F");
       nodePage.style = "background-color: white"
       document.body.style = "background-color: white;"
 
       dateSpan.style = "color: black";
+
+      accordion1.style = "background-color: #1976D2";
       return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {
       setAppBarColor("#0F0F0F");
@@ -68,6 +76,9 @@ function NodePageAppBar() {
       document.body.style = "background-color: #262525;"
       
       dateSpan.style = "color: white";
+
+      accordion1.style = "background-color: #852e2f;";
+
       return localStorage.setItem("theme", "light");
     }
 
@@ -77,7 +88,7 @@ function NodePageAppBar() {
     determineTheme();
 
     let id = localStorage.getItem("nodeAHash");
-    setPageUrls(["/NodePage"+id, "/", "/Bom"+id, "/", "/",  ])
+    setPageUrls(["/NodePage"+id, "/", "/Bom"+id, "/", "/",  ]);
   })
 
 

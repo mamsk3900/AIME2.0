@@ -30,9 +30,18 @@ function NodePageAppBar() {
       sysInfoAccordion.style = "background-color: #2e85dc";
       aimeTestAccordion.style = "background-color: #2e85dc";
     } else if (theme === "light") {
-      aimeInfoAccordion.style = "background-color: #2E8572";
-      sysInfoAccordion.style = "background-color: #2E8572";
-      aimeTestAccordion.style = "background-color: #2E8572";
+      aimeInfoAccordion.style = "background-color: #1A646F";
+      sysInfoAccordion.style = "background-color: #1A646F";
+      aimeTestAccordion.style = "background-color: #1A646F";
+    }
+  }
+  function changeButtons(theme) {
+    const buttons = document.getElementsByClassName("aimeTestButtons");
+    buttons.style = "background-color: red";
+    if (theme === "dark") {
+
+    } else if (theme === "light") {
+
     }
   }
   

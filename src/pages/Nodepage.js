@@ -88,17 +88,17 @@ function NodePage() {
                 <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
             </div>
             <div id="AIMEInfoDiv">
-                <AccordionExpanded  title={"AIME Info"} data={[["fdsfs"], rows]}/>
+                <AccordionExpanded  title={"AIME Info"} data={[["fdsfs"], rows]} accordionId={"AimeInfoAccordion"}/>
             </div>
             <div id="SystemInfoDiv">
-                <AccordionExpanded title={"System Info"} data={[[], rows]}/>
+                <AccordionExpanded title={"System Info"} data={[[], rows]} accordionId={"SysInfoAccordion"}/>
             </div>
             <div id="buttonDiv">
                 <Button variant="contained" id="QAButton">Perform QA</Button>
                 <Button variant="contained" id="JobNumButton">Set Job/RMA# and Nodename</Button>
             </div>
             <div id="AIMETestsTable">
-                <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} data={[columns, rows]} showTableBool={false} buttonCollection={buttons}></AccordionExpanded>
+                <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} data={[columns, rows]} showTableBool={false} buttonCollection={buttons} accordionId={"AimeTestAccordion"}></AccordionExpanded>
                 <DataTable title={""} rows={rows} columns={columns} hideFooterBool={true}></DataTable>
             </div>
             <Box

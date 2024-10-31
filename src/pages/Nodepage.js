@@ -68,7 +68,7 @@ function NodePage() {
         
         localStorage.setItem("nodeAHash", getNodeHash(windowPathname));
         
-        clockUpdate()
+        clockUpdate();
         
         setRows(createData(1, "chub", "round"));
             

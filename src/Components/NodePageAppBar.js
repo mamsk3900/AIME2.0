@@ -21,16 +21,34 @@ function NodePageAppBar() {
       window.open(pagesURLS[pages.indexOf(element)], "_self");
   };
 
+  function changeAccordions(theme) {
+    const aimeInfoAccordion = document.getElementById("AimeInfoAccordion");
+    const sysInfoAccordion = document.getElementById("SysInfoAccordion");
+    const aimeTestAccordion = document.getElementById("AimeTestAccordion");
+    if (theme === "dark") {
+      aimeInfoAccordion.style = "background-color: #2e85dc";
+      sysInfoAccordion.style = "background-color: #2e85dc";
+      aimeTestAccordion.style = "background-color: #2e85dc";
+    } else if (theme === "light") {
+      aimeInfoAccordion.style = "background-color: #2E8572";
+      sysInfoAccordion.style = "background-color: #2E8572";
+      aimeTestAccordion.style = "background-color: #2E8572";
+    }
+  }
+
   function determineTheme() {
     const nodePage = document.getElementById("NodePage");
     const dateSpan = document.getElementById("dateSpan");
-    const accordion1 = document.getElementById("panel1-header");
+    const aimeInfoAccordion = document.getElementById("AimeInfoAccordion");
+    const sysInfoAccordion = document.getElementById("SysInfoAccordion");
+    const aimeTestAccordion = document.getElementById("AimeTestAccordion");
     if (!localStorage.getItem("theme")) {
       setAppBarColor("#1976D2");
       nodePage.style = "background-color: black"
       
       dateSpan.style = "color: black";
-      accordion1.style = "background-color: #1976D2";
+      changeAccordions("light");
+
       
       localStorage.setItem("theme", "light");
     } else if (localStorage.getItem("theme") === "dark") {
@@ -40,7 +58,8 @@ function NodePageAppBar() {
       document.body.style = "background-color: white;"
 
       dateSpan.style = "color: black"
-      accordion1.style = "background-color: #1976D2";
+      changeAccordions("dark");
+
 
 
     } else if (localStorage.getItem("theme") === "light") {
@@ -50,7 +69,7 @@ function NodePageAppBar() {
       document.body.style = "background-color: #262525;"
       
       dateSpan.style = "color: white";
-      accordion1.style = "background-color: #2E8572";
+      changeAccordions("light");
       
       
     }
@@ -59,14 +78,16 @@ function NodePageAppBar() {
   function handleThemeChange() {
     const nodePage = document.getElementById("NodePage");
     const dateSpan = document.getElementById("dateSpan");
-    const accordion1 = document.getElementById("panel1-header");
+    const aimeInfoAccordion = document.getElementById("AimeInfoAccordion");
+    const sysInfoAccordion = document.getElementById("SysInfoAccordion");
+    const aimeTestAccordion = document.getElementById("AimeTestAccordion");
     if (localStorage.getItem("theme") === "light") {
       setAppBarColor("#0F0F0F");
       nodePage.style = "background-color: white"
       document.body.style = "background-color: white;"
 
       dateSpan.style = "color: black";
-      accordion1.style = "background-color: #1976D2";
+      changeAccordions("dark");
 
       return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {
@@ -75,7 +96,8 @@ function NodePageAppBar() {
       document.body.style = "background-color: #262525;"
       
       dateSpan.style = "color: white";
-      accordion1.style = "background-color: #2E8572";
+      changeAccordions("light");
+
 
       return localStorage.setItem("theme", "light");
     }

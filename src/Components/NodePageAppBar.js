@@ -35,68 +35,52 @@ function NodePageAppBar() {
       aimeTestAccordion.style = "background-color: #2E8572";
     }
   }
-
-  function determineTheme() {
+  
+  function changeToLight() {
     const nodePage = document.getElementById("NodePage");
     const dateSpan = document.getElementById("dateSpan");
-    const aimeInfoAccordion = document.getElementById("AimeInfoAccordion");
-    const sysInfoAccordion = document.getElementById("SysInfoAccordion");
-    const aimeTestAccordion = document.getElementById("AimeTestAccordion");
-    if (!localStorage.getItem("theme")) {
-      setAppBarColor("#1976D2");
-      nodePage.style = "background-color: black"
-      
-      dateSpan.style = "color: black";
-      changeAccordions("light");
+    setChecked(true);
+    setAppBarColor("#0F0F0F");
+    nodePage.style = "background-color: #1a1818"
+    document.body.style = "background-color: #262525;"
+    
+    dateSpan.style = "color: white";
+    changeAccordions("light");
+  }
 
+  function changeToDark() {
+    const nodePage = document.getElementById("NodePage");
+    const dateSpan = document.getElementById("dateSpan");
+    setChecked(false);
+    setAppBarColor("#1976D2");
+    nodePage.style = "background-color: #F5F5F5"
+    document.body.style = "background-color: white;"
+
+    dateSpan.style = "color: black"
+    changeAccordions("dark");
+  }
+
+  function determineTheme() {
+    if (!localStorage.getItem("theme")) {
+      changeToLight();
       
       localStorage.setItem("theme", "light");
     } else if (localStorage.getItem("theme") === "dark") {
-      setChecked(false);
-      setAppBarColor("#1976D2");
-      nodePage.style = "background-color: #F5F5F5"
-      document.body.style = "background-color: white;"
-
-      dateSpan.style = "color: black"
-      changeAccordions("dark");
-
-
+      changeToDark();
 
     } else if (localStorage.getItem("theme") === "light") {
-      setChecked(true);
-      setAppBarColor("#0F0F0F");
-      nodePage.style = "background-color: #1a1818"
-      document.body.style = "background-color: #262525;"
-      
-      dateSpan.style = "color: white";
-      changeAccordions("light");
-      
+      changeToLight();
       
     }
   }
 
   function handleThemeChange() {
-    const nodePage = document.getElementById("NodePage");
-    const dateSpan = document.getElementById("dateSpan");
-    const aimeInfoAccordion = document.getElementById("AimeInfoAccordion");
-    const sysInfoAccordion = document.getElementById("SysInfoAccordion");
-    const aimeTestAccordion = document.getElementById("AimeTestAccordion");
     if (localStorage.getItem("theme") === "light") {
-      setAppBarColor("#0F0F0F");
-      nodePage.style = "background-color: white"
-      document.body.style = "background-color: white;"
-
-      dateSpan.style = "color: black";
-      changeAccordions("dark");
+      changeToDark();
 
       return localStorage.setItem("theme", "dark");
     } if (localStorage.getItem("theme") === "dark") {
-      setAppBarColor("#0F0F0F");
-      nodePage.style = "color: #F5F5F5;"
-      document.body.style = "background-color: #262525;"
-      
-      dateSpan.style = "color: white";
-      changeAccordions("light");
+      changeToLight();
 
 
       return localStorage.setItem("theme", "light");

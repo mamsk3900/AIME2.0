@@ -8,7 +8,7 @@ import DataTable from '../Components/DataTable';
 import {useState, useEffect} from 'react'
 
 
-export default function AccordionExpanded({title, data, showTableBool = true, buttonCollection}) {
+export default function AccordionExpanded({title, data, showTableBool = true, buttonCollection, accordionId}) {
   const [accordionSummaryColor, setAccordionSummaryColor] = useState("#1976D2");
 
   function determineAccordionTheme() {
@@ -32,11 +32,11 @@ export default function AccordionExpanded({title, data, showTableBool = true, bu
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
-          id="panel1-header"
+          id={accordionId}
           className="accordionSummaries"
           sx={{backgroundColor: accordionSummaryColor}}
         >
-          <Typography sx={{display: "flex", margin: "auto"}}>{title}</Typography>
+          <Typography sx={{display: "flex", margin: "auto", color: "white"}}>{title}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           {showTableBool &&

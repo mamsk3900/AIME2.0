@@ -1,9 +1,18 @@
+$primaryLight: #1976D2;
+$secondaryLight: white;
+
+$primaryDark: #0f0f0f;
+$secondaryDark: #262525;
+
+$textColorLightmode: black;
+$textColorDarkmode: white;
+
 .App {
   text-align: center;
 }
 
 .body {
-  width: 100%;
+  width: 100%
 }
 
 #AspenLogo {
@@ -54,7 +63,7 @@ span {
 }
 
 #panel1-header:hover {
-  background-color: rgba(117, 172, 228, 0.8);
+  background-color: rgba(117, 172, 228, .8);
 }
 
 #AIMEInfoDiv {
@@ -69,6 +78,7 @@ span {
   margin-right: 10%;
   width: 500px;
 }
+
 
 #buttonDiv {
   display: flex;
@@ -93,6 +103,7 @@ span {
 #logOutputPaper {
   height: 500px;
   overflow-y: scroll;
+
 }
 
 #BOMPage {
@@ -108,11 +119,11 @@ span {
 
 #BOMAccordionDiv {
   margin: auto;
-  width: 75%;
+  width: 75%
 }
 
 #SystemAccordion, #MotherboardAccordion {
-  display: list-item;
+  display:list-item;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -120,6 +131,7 @@ span {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -143,19 +155,20 @@ span {
     transform: rotate(360deg);
   }
 }
+
 @media (max-width: 830px) {
   img {
-    display: none; /* Hide the image below 600px */
+      display: none; /* Hide the image below 600px */
   }
+
   #AppBarLinks {
     font-size: 2.3vw;
     margin: auto;
     display: inline-block;
   }
+
   #NavItems {
     display: flex;
-    margin-left: 0%;
+    margin-left: 0%
   }
 }
-
-/*# sourceMappingURL=App.css.map */

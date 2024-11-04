@@ -21,7 +21,7 @@ function NodePageAppBar() {
       window.open(pagesURLS[pages.indexOf(element)], "_self");
   };
 
-  function changeAccordions(theme) {
+  function changeAccordionsSummaries(theme) {
     const aimeInfoAccordion = document.getElementById("AimeInfoAccordion");
     const sysInfoAccordion = document.getElementById("SysInfoAccordion");
     const aimeTestAccordion = document.getElementById("AimeTestAccordion");
@@ -35,6 +35,12 @@ function NodePageAppBar() {
       aimeTestAccordion.style = "background-color: #1A646F";
     }
   }
+
+  function changeAccordionsBackground() {
+    const accordionBackgrounds = document.getElementsByClassName("MuiAccordionDetails-root");
+    accordionBackgrounds.style="background-color: red";
+}
+
   function changeButtons(theme) {
     if (theme === "dark") {
       const buttons = document.querySelectorAll('[className*="aimeTestButtons"]');
@@ -55,7 +61,8 @@ function NodePageAppBar() {
     document.body.style = "background-color: #262525;"
     
     dateSpan.style = "color: white";
-    changeAccordions("light");
+    changeAccordionsSummaries("light");
+    changeAccordionsBackground();
   }
 
   function changeToDark() {
@@ -67,7 +74,7 @@ function NodePageAppBar() {
     document.body.style = "background-color: white;"
 
     dateSpan.style = "color: black"
-    changeAccordions("dark");
+    changeAccordionsSummaries("dark");
     changeButtons("dark");
   }
 

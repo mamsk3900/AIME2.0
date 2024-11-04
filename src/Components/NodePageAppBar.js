@@ -36,10 +36,11 @@ function NodePageAppBar() {
     }
   }
   function changeButtons(theme) {
-    const buttons = document.getElementsByClassName("aimeTestButtons");
-    buttons.style = "background-color: red";
     if (theme === "dark") {
-
+      const buttons = document.querySelectorAll('[className*="aimeTestButtons"]');
+      console.log(buttons);
+      buttons.style = "color: red";
+      return
     } else if (theme === "light") {
 
     }
@@ -67,6 +68,7 @@ function NodePageAppBar() {
 
     dateSpan.style = "color: black"
     changeAccordions("dark");
+    changeButtons("dark");
   }
 
   function determineTheme() {

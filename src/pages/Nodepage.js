@@ -87,11 +87,13 @@ function NodePage() {
             <div id="clock">
                 <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
             </div>
-            <div id="AIMEInfoDiv">
-                <AccordionExpanded  title={"AIME Info"} data={[["fdsfs"], rows]} accordionId={"AimeInfoAccordion"}/>
-            </div>
-            <div id="SystemInfoDiv">
-                <AccordionExpanded title={"System Info"} data={[[], rows]} accordionId={"SysInfoAccordion"}/>
+            <div style={{height: "fit-content"}}>
+                <div id="AIMEInfoDiv">
+                    <AccordionExpanded  title={"AIME Info"} data={[["fdsfs"], rows]} accordionId={"AimeInfoAccordion"}/>
+                </div>
+                <div id="SystemInfoDiv">
+                    <AccordionExpanded title={"System Info"} data={[[], rows]} accordionId={"SysInfoAccordion"}/>
+                </div>
             </div>
             <div id="buttonDiv">
                 <Button variant="contained" id="QAButton" className="aimeTestButtons">Perform QA</Button>

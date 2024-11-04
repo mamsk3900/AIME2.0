@@ -38,7 +38,7 @@ export default function AccordionExpanded({title, data, showTableBool = true, bu
         >
           <Typography sx={{display: "flex", margin: "auto", color: "white"}}>{title}</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails className='AccordionDetails'>
           {showTableBool &&
             <DataTable id="accordionTables" columns={data[0]} rows={data[1]} hideFooterBool={true} columnHeaderDisplayType={"none"} ></DataTable>
           }

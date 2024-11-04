@@ -37,7 +37,7 @@ function NodePageAppBar() {
   }
 
   function changeAccordionsBackground() {
-    const accordionBackgrounds = document.getElementsByClassName("MuiAccordionDetails-root");
+    const accordionBackgrounds = document.getElementsByClassName("AccordionDetails");
     accordionBackgrounds.style="background-color: red";
 }
 

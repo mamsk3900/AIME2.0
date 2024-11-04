@@ -43,9 +43,9 @@ function NodePageAppBar() {
 
   function changeButtons(theme) {
     if (theme === "dark") {
-      const buttons = document.querySelectorAll('[className*="aimeTestButtons"]');
+      const buttons = document.querySelectorAll('button[class*="aimeTestButtons"]');
       console.log(buttons);
-      buttons.style = "color: red";
+      buttons.style = "background-color: red";
       return
     } else if (theme === "light") {
 

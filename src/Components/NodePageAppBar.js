@@ -16,6 +16,7 @@ function NodePageAppBar() {
   const [pagesURLS, setPageUrls] = useState([]);
   const [appBarColor, setAppBarColor] = useState("#1976D2");
   const [checked, setChecked] = useState("");
+  const toggleColor = useStore((state) => state.toggleColor);
 
   function handleButtonClicks(element){
       window.open(pagesURLS[pages.indexOf(element)], "_self");
@@ -95,6 +96,7 @@ function NodePageAppBar() {
   }
 
   function handleThemeChange() {
+    toggleColor
     if (localStorage.getItem("theme") === "light") {
       changeToDark();
 

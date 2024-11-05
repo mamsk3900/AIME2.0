@@ -96,8 +96,8 @@ function NodePage() {
                 </div>
             </div>
             <div id="buttonDiv">
-                <Button variant="contained" id="QAButton" className="aimeTestButtons">Perform QA</Button>
-                <Button variant="contained" id="JobNumButton" className="aimeTestButtons">Set Job/RMA# and Nodename</Button>
+                <Button variant="contained" id="QAButton" className="aimeButtons">Perform QA</Button>
+                <Button variant="contained" id="JobNumButton" className="aimeButtons">Set Job/RMA# and Nodename</Button>
             </div>
             <div id="AIMETestsTable">
                 <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} data={[columns, rows]} showTableBool={false} buttonCollection={buttons} accordionId={"AimeTestAccordion"}></AccordionExpanded>

@@ -42,13 +42,16 @@ function NodePageAppBar() {
 }
 
   function changeButtons(theme) {
+    const buttons = document.querySelectorAll('button');
+    console.log(buttons);
     if (theme === "dark") {
-      const buttons = document.querySelectorAll('button[class*="aimeTestButtons"]');
-      console.log(buttons);
       buttons.style = "background-color: red";
       return
     } else if (theme === "light") {
-
+      buttons.forEach(button => {
+        button.style = "background-color: red";
+      });
+      return
     }
   }
   
@@ -57,8 +60,8 @@ function NodePageAppBar() {
     const dateSpan = document.getElementById("dateSpan");
     setChecked(true);
     setAppBarColor("#0F0F0F");
-    nodePage.style = "background-color: #1a1818"
-    document.body.style = "background-color: #262525;"
+    nodePage.style = "background-color: #1a1818;";
+    document.body.style = "background-color: #262525;";
     
     dateSpan.style = "color: white";
     changeAccordionsSummaries("light");
@@ -111,7 +114,7 @@ function NodePageAppBar() {
 
     let id = localStorage.getItem("nodeAHash");
     setPageUrls(["/NodePage"+id, "/", "/Bom"+id, "/", "/",  ]);
-  })
+  }, []);
 
 
 

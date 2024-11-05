@@ -16,7 +16,6 @@ function NodePageAppBar() {
   const [pagesURLS, setPageUrls] = useState([]);
   const [appBarColor, setAppBarColor] = useState("#1976D2");
   const [checked, setChecked] = useState("");
-  const toggleColor = useStore((state) => state.toggleColor);
 
   function handleButtonClicks(element){
       window.open(pagesURLS[pages.indexOf(element)], "_self");
@@ -60,12 +59,17 @@ function NodePageAppBar() {
     const dateSpan = document.getElementById("dateSpan");
     setChecked(true);
     setAppBarColor("#0F0F0F");
-    nodePage.style = "background-color: #1a1818;";
+    try {
+      nodePage.style = "background-color: #1a1818;";
+      dateSpan.style = "color: white";
+      changeAccordionsSummaries("light");
+      changeAccordionsBackground();
+
+    } catch {
+
+    }
     document.body.style = "background-color: #262525;";
     
-    dateSpan.style = "color: white";
-    changeAccordionsSummaries("light");
-    changeAccordionsBackground();
   }
 
   function changeToDark() {
@@ -73,11 +77,16 @@ function NodePageAppBar() {
     const dateSpan = document.getElementById("dateSpan");
     setChecked(false);
     setAppBarColor("#1976D2");
-    nodePage.style = "background-color: #F5F5F5"
-    document.body.style = "background-color: white;"
+    try {
+      nodePage.style = "background-color: #F5F5F5"
+      document.body.style = "background-color: white;"
+  
+      dateSpan.style = "color: black"
+      changeAccordionsSummaries("dark");
 
-    dateSpan.style = "color: black"
-    changeAccordionsSummaries("dark");
+    } catch {
+
+    }
     // changeButtons("dark");
   }
 
@@ -96,7 +105,6 @@ function NodePageAppBar() {
   }
 
   function handleThemeChange() {
-    toggleColor
     if (localStorage.getItem("theme") === "light") {
       changeToDark();
 

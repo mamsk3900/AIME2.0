@@ -4,6 +4,7 @@ import NodePageAppBar from '../Components/NodePageAppBar'
 import AccordionExpanded from '../Components/AccordionExpanded';
 import { Button, Paper, Box } from '@mui/material';
 import DataTable from '../Components/DataTable';
+import ColorContext from '../Components/ColorContext';
 
 function NodePage() {
     const [paperHTMLContents, setPaperHTMLContents] = useState([]);
@@ -96,8 +97,10 @@ function NodePage() {
                 </div>
             </div>
             <div id="buttonDiv">
-                <Button variant="contained" id="QAButton" className="aimeButtons">Perform QA</Button>
-                <Button variant="contained" id="JobNumButton" className="aimeButtons">Set Job/RMA# and Nodename</Button>
+                <ColorContext.Provider value={{color, toggleColor}}>
+                    <Button variant="contained" id="QAButton" className="aimeButtons">Perform QA</Button>
+                    <Button variant="contained" id="JobNumButton" className="aimeButtons">Set Job/RMA# and Nodename</Button>
+                </ColorContext.Provider>
             </div>
             <div id="AIMETestsTable">
                 <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} data={[columns, rows]} showTableBool={false} buttonCollection={buttons} accordionId={"AimeTestAccordion"}></AccordionExpanded>

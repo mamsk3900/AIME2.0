@@ -4,7 +4,7 @@ import NodePageAppBar from '../Components/NodePageAppBar'
 import AccordionExpanded from '../Components/AccordionExpanded';
 import { Button, Paper, Box } from '@mui/material';
 import DataTable from '../Components/DataTable';
-import ColorContext from '../Components/ColorContext';
+import ColorContext from '../Components/useStore';
 
 function NodePage() {
     const [paperHTMLContents, setPaperHTMLContents] = useState([]);

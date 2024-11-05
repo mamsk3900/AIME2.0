@@ -16,7 +16,7 @@ function NodePage() {
 
 
     function clockUpdate() {
-        let dateSpan = document.getElementById("dateSpan")
+        let dateSpan = document.getElementById("dateSpan");
         const intervalID = setInterval(() => {
             let date = new Date();
     
@@ -97,10 +97,8 @@ function NodePage() {
                 </div>
             </div>
             <div id="buttonDiv">
-                <ColorContext.Provider value={{color, toggleColor}}>
                     <Button variant="contained" id="QAButton" className="aimeButtons">Perform QA</Button>
                     <Button variant="contained" id="JobNumButton" className="aimeButtons">Set Job/RMA# and Nodename</Button>
-                </ColorContext.Provider>
             </div>
             <div id="AIMETestsTable">
                 <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} data={[columns, rows]} showTableBool={false} buttonCollection={buttons} accordionId={"AimeTestAccordion"}></AccordionExpanded>

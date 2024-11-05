@@ -41,19 +41,18 @@ function NodePageAppBar() {
     accordionBackgrounds.style="background-color: red";
 }
 
-  function changeButtons(theme) {
-    const buttons = document.querySelectorAll('button');
-    console.log(buttons);
-    if (theme === "dark") {
-      buttons.style = "background-color: red";
-      return
-    } else if (theme === "light") {
-      buttons.forEach(button => {
-        button.style = "background-color: red";
-      });
-      return
-    }
-  }
+  // function changeButtons(theme) {
+  //   console.log(buttons);
+  //   if (theme === "dark") {
+  //     buttons.style = "background-color: red";
+  //     return
+  //   } else if (theme === "light") {
+  //     buttons.forEach(button => {
+  //       button.style = "background-color: red";
+  //     });
+  //     return
+  //   }
+  // }
   
   function changeToLight() {
     const nodePage = document.getElementById("NodePage");
@@ -78,7 +77,7 @@ function NodePageAppBar() {
 
     dateSpan.style = "color: black"
     changeAccordionsSummaries("dark");
-    changeButtons("dark");
+    // changeButtons("dark");
   }
 
   function determineTheme() {

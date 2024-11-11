@@ -53,6 +53,7 @@ function ResponsiveAppBar() {
     }
 
   }
+  
   useEffect(() => {
     determineTheme();
   })

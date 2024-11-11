@@ -7,4 +7,19 @@ const theme = {
     },
 };
 
+// export const getDesignTokens = (mode: PaletteMode) => ({
+//     palette: {
+//         mode,
+//         ...(mode === "light"
+//             ? {
+//                 primary: amber,
+//             }
+//             :
+//             {
+//                 primary: deepOrange,
+//             }
+//         ),
+//     },
+// });
+
 export default theme;

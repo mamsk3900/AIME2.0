@@ -1,9 +1,9 @@
-import {createTheme, PaletteMode } from "@mui/material";
+import {createTheme } from "@mui/material";
 import React from "react";
 import theme from "./theme";
 
 export const useColorTheme = () => {
-    const [mode, setMode] = React.useState<PaletteMode>("light");
+    const [mode, setMode] = React.useState("light");
 
     const toggleColorMode = () =>
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));

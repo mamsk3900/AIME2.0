@@ -7,13 +7,15 @@ import Button from '@mui/material/Button';
 import Logo from '../imgs/logo.png';
 import DarkModeSwitch from './DarkModeSwitch';
 import { useState, useEffect } from 'react';
-import { Tooltip } from '@mui/material';
+import { Tooltip, ThemeProvider, CssBaseline } from '@mui/material';
+import { useThemeContext } from "./theme/ThemeContextProvider";
 
 const pages = ['RT', 'Defective Material', "Wiki", "Sales Documents"];
 const pagesURLS = ["http://support.private.aspsys.com/", "http://aime.private.aspsys.com/defective_material.php", "http://wiki.private.aspsys.com/doku.php", "http://aime.private.aspsys.com/salesdocs/"  ];
 
 
 function ResponsiveAppBar() {
+  const { theme } = useThemeContext();
   const [appBarColor, setAppBarColor] = useState("#1976D2");
   const [checked, setChecked] = useState("");
   function handleButtonClicks(element){
@@ -58,28 +60,31 @@ function ResponsiveAppBar() {
 
 
   return (
-    <AppBar position="relative" width="100%">
-      <Container maxWidth="1" sx={{backgroundColor: appBarColor}}>
-        <Toolbar disableGutters>
-          <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right in magenta'/> 
-          <Box id="NavItems" >
-            <Tooltip title="Light mode/Dark mode">
-              <DarkModeSwitch onClick={() => handleThemeChange()} sx={{marginBottom: "8%", overflow: "visible", width: "70px"}} checked={checked}/>
-            </Tooltip>
-            {pages.map((page) => (
-              <Button
+    <ThemeProvider theme={theme}>
+      <CssBaseline/>
+      <AppBar position="relative" width="100%">
+        <Container maxWidth="1" sx={{backgroundColor: appBarColor}}>
+          <Toolbar disableGutters>
+            <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right in magenta'/> 
+            <Box id="NavItems" >
+              <Tooltip title="Light mode/Dark mode">
+                <DarkModeSwitch onClick={() => handleThemeChange()} sx={{marginBottom: "8%", overflow: "visible", width: "70px"}} checked={checked}/>
+              </Tooltip>
+              {pages.map((page) => (
+                <Button
                 id="AppBarLinks"
                 key={page}
                 onClick={() => handleButtonClicks(page)}
                 sx={{ my: 2, fontSize: "100%", color: 'white', textDecoration: "underline", minWidth: "5%", minHeight: "1em", background: "#00000000"}}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+                >
+                  {page}
+                </Button>
+              ))}
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </ThemeProvider>
   );
 }
 export default ResponsiveAppBar;

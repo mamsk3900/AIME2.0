@@ -3,6 +3,7 @@ import DataTable from "../Components/DataTable"
 import AppBar from "../Components/AppBar";
 import { useState, useEffect } from 'react';
 import { startMakingNode } from '../NodeFactory';
+import { ThemeContextProvider } from '../theme/ThemeContextProvider';
 
 function Home() {
   const [singleNode, setSingleNode] = useState([]);

@@ -42,10 +42,12 @@ function Home() {
   }, [])
 
   return (
-    <div className="Home">
-      <AppBar id="AppBar"/>
-      <DataTable rows={rows} columns={columns} title={"AIME Control Table"} />
-    </div>
+    <ThemeContextProvider>
+      <div className="Home">
+        <AppBar id="AppBar"/>
+        <DataTable rows={rows} columns={columns} title={"AIME Control Table"} />
+      </div>
+    </ThemeContextProvider>
   );
 }
 

@@ -8,7 +8,7 @@ import Logo from '../imgs/logo.png';
 import DarkModeSwitch from './DarkModeSwitch';
 import { useState, useEffect } from 'react';
 import { Tooltip, ThemeProvider, CssBaseline } from '@mui/material';
-import { useThemeContext } from "./theme/ThemeContextProvider";
+import { useThemeContext } from "../theme/ThemeContextProvider"
 
 const pages = ['RT', 'Defective Material', "Wiki", "Sales Documents"];
 const pagesURLS = ["http://support.private.aspsys.com/", "http://aime.private.aspsys.com/defective_material.php", "http://wiki.private.aspsys.com/doku.php", "http://aime.private.aspsys.com/salesdocs/"  ];

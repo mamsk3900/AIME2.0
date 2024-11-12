@@ -43,15 +43,7 @@ function ResponsiveAppBar() {
   }
   
   function handleThemeChange() {
-    if (localStorage.getItem("theme") === "light") {
-      document.body.style = "background-color: white;"
-      setAppBarColor("#0F0F0F");
-      return localStorage.setItem("theme", "dark");
-    } if (localStorage.getItem("theme") === "dark") {
-      document.body.style = "background-color: #262525;"
-      setAppBarColor("#0F0F0F");
-      return localStorage.setItem("theme", "light");
-    }
+    console.log(theme);
 
   }
 
@@ -69,10 +61,6 @@ function ResponsiveAppBar() {
           <Toolbar disableGutters>
             <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right in magenta'/> 
             <Box id="NavItems" >
-              <Tooltip title="Light mode/Dark mode">
-                <DarkModeSwitch onClick={() => handleThemeChange()} sx={{marginBottom: "8%", overflow: "visible", width: "70px"}} checked={checked}/>
-              </Tooltip>
-              <NightModeToggle></NightModeToggle>
               {pages.map((page) => (
                 <Button
                 id="AppBarLinks"
@@ -83,6 +71,9 @@ function ResponsiveAppBar() {
                   {page}
                 </Button>
               ))}
+              <Tooltip title="Light mode/Dark mode">
+                <NightModeToggle></NightModeToggle>
+              </Tooltip>
             </Box>
           </Toolbar>
         </Container>

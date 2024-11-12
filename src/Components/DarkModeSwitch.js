@@ -4,7 +4,7 @@ import Switch from '@mui/material/Switch';
 import { useThemeContext } from '../theme/ThemeContextProvider';
 
 const DarkModeSwitch = styled(Switch)(({ theme }) => ({
-  width: 62,
+  width: 70,
   height: 34,
   padding: 7,
   '& .MuiSwitch-switchBase': {

@@ -8,7 +8,8 @@ import Logo from '../imgs/logo.png';
 import DarkModeSwitch from './DarkModeSwitch';
 import { useState, useEffect } from 'react';
 import { Tooltip, ThemeProvider, CssBaseline } from '@mui/material';
-import { useThemeContext } from "../theme/ThemeContextProvider"
+import { useThemeContext } from "../theme/ThemeContextProvider";
+import NightModeToggle from "./NightModeToggle";
 
 const pages = ['RT', 'Defective Material', "Wiki", "Sales Documents"];
 const pagesURLS = ["http://support.private.aspsys.com/", "http://aime.private.aspsys.com/defective_material.php", "http://wiki.private.aspsys.com/doku.php", "http://aime.private.aspsys.com/salesdocs/"  ];
@@ -53,7 +54,7 @@ function ResponsiveAppBar() {
     }
 
   }
-  
+
   useEffect(() => {
     determineTheme();
   })
@@ -71,6 +72,7 @@ function ResponsiveAppBar() {
               <Tooltip title="Light mode/Dark mode">
                 <DarkModeSwitch onClick={() => handleThemeChange()} sx={{marginBottom: "8%", overflow: "visible", width: "70px"}} checked={checked}/>
               </Tooltip>
+              <NightModeToggle></NightModeToggle>
               {pages.map((page) => (
                 <Button
                 id="AppBarLinks"

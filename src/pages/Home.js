@@ -4,11 +4,14 @@ import AppBar from "../Components/AppBar";
 import { useState, useEffect } from 'react';
 import { startMakingNode } from '../NodeFactory';
 import { ThemeContextProvider } from '../theme/ThemeContextProvider';
+import { useThemeContext } from "../theme/ThemeContextProvider";
 
 function Home() {
   const [singleNode, setSingleNode] = useState([]);
   const [rows, setRows] = useState([]);
   const [columns, setColumns] = useState([]);
+  const { theme } = useThemeContext();
+
 
 
   useEffect(() => { 

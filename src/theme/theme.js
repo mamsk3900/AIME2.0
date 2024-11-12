@@ -9,7 +9,7 @@ const theme = {
 export const getDesignTokens = (mode) => ({
   palette: {
     mode,
-    ...(mode === "dark"
+    ...(mode === "light"
       ? {
           primary: amber,
         }

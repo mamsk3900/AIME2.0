@@ -1,7 +1,6 @@
-import { Box, IconButton } from "@mui/material";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { Box } from "@mui/material";
 import { useThemeContext } from "../theme/ThemeContextProvider";
+import DarkModeSwitch from "./DarkModeSwitch";
 
 const NightModeToggle = () => {
     const { mode, toggleColorMode } = useThemeContext();
@@ -16,23 +15,8 @@ const NightModeToggle = () => {
     }
 
     return (
-        <Box
-            sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                bgcolor: "background.default",
-                color: "text.primary",
-                borderColor: "text.primary",
-                border: "1px solid",
-                borderRadius: 25,
-                p: 2,
-            }}
-        >
-            {mode} mode
-            <IconButton sx={{ ml: 1 }} onClick={changeColorMode} color="inherit">
-                {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
-            </IconButton>
+        <Box>
+            {mode === "dark" ? <DarkModeSwitch onClick={changeColorMode} sx={{marginBottom: "70%", overflow: "visible", width: "70px"}} /> : <DarkModeSwitch onClick={changeColorMode} sx={{marginBottom: "70%", overflow: "visible", width: "70px"}} />}
         </Box>
     );
 };

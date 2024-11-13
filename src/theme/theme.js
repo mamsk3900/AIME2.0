@@ -2,7 +2,7 @@ import { amber, deepOrange, red } from "@mui/material/colors";
 
 const theme = {
   palette: {
-    primary: red,
+    primary: amber,
   },
 };
 

@@ -15,7 +15,7 @@ function NodePage() {
 
 
     function clockUpdate() {
-        let dateSpan = document.getElementById("dateSpan")
+        let dateSpan = document.getElementById("dateSpan");
         const intervalID = setInterval(() => {
             let date = new Date();
     
@@ -68,7 +68,7 @@ function NodePage() {
         
         localStorage.setItem("nodeAHash", getNodeHash(windowPathname));
         
-        clockUpdate()
+        clockUpdate();
         
         setRows(createData(1, "chub", "round"));
             
@@ -76,7 +76,7 @@ function NodePage() {
 
         setButtons([<Button variant="contained" sx={{marginRight: "10px"}} >STOP TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained">RESTART AIME TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={MCEstatus}>MCE</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={EDACstatus}>EDAC</Button>, <Button sx={{marginRight: "10px"}} variant="contained">STREAM LOG</Button>]);
         //^This is for when the color of the MCE and EDAC buttons change color
-        
+
         }, [])
 
 
@@ -87,18 +87,20 @@ function NodePage() {
             <div id="clock">
                 <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
             </div>
-            <div id="AIMEInfoDiv">
-                <AccordionExpanded title={"AIME Info"} data={[["fdsfs"], rows]}/>
-            </div>
-            <div id="SystemInfoDiv">
-                <AccordionExpanded title={"System Info"} data={[[], rows]}/>
+            <div style={{height: "fit-content"}}>
+                <div id="AIMEInfoDiv">
+                    <AccordionExpanded  title={"AIME Info"} data={[["fdsfs"], rows]} accordionId={"AimeInfoAccordion"}/>
+                </div>
+                <div id="SystemInfoDiv">
+                    <AccordionExpanded title={"System Info"} data={[[], rows]} accordionId={"SysInfoAccordion"}/>
+                </div>
             </div>
             <div id="buttonDiv">
-                <Button variant="contained" id="QAButton">Perform QA</Button>
-                <Button variant="contained" id="JobNumButton">Set Job/RMA# and Nodename</Button>
+                    <Button variant="contained" id="QAButton" className="aimeButtons">Perform QA</Button>
+                    <Button variant="contained" id="JobNumButton" className="aimeButtons">Set Job/RMA# and Nodename</Button>
             </div>
             <div id="AIMETestsTable">
-                <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} data={[columns, rows]} showTableBool={false} buttonCollection={buttons}></AccordionExpanded>
+                <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} data={[columns, rows]} showTableBool={false} buttonCollection={buttons} accordionId={"AimeTestAccordion"}></AccordionExpanded>
                 <DataTable title={""} rows={rows} columns={columns} hideFooterBool={true}></DataTable>
             </div>
             <Box

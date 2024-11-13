@@ -5,7 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Logo from '../imgs/logo.png';
-import DarkModeSwitch from './DarkModeSwitch';
 import { useState, useEffect } from 'react';
 import { Tooltip, ThemeProvider, CssBaseline } from '@mui/material';
 import { useThemeContext } from "../theme/ThemeContextProvider";

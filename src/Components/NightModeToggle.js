@@ -19,8 +19,10 @@ const NightModeToggle = () => {
     function changeColorMode() {
         toggleColorMode();
         if (localStorage.getItem("theme") === "light") {
+          setChecked(false);
             return localStorage.setItem("theme", "dark");
           } if (localStorage.getItem("theme") === "dark") {
+            setChecked(true);
             return localStorage.setItem("theme", "light");
           }
     }

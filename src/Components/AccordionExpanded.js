@@ -6,45 +6,41 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import DataTable from '../Components/DataTable';
 import {useState, useEffect} from 'react'
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { useThemeContext } from '../theme/ThemeContextProvider';
 
 
 export default function AccordionExpanded({title, data, showTableBool = true, buttonCollection, accordionId}) {
   const [accordionSummaryColor, setAccordionSummaryColor] = useState("#1976D2");
-
-  function determineAccordionTheme() {
-    if (!localStorage.getItem("theme")) {
-      setAccordionSummaryColor("#1976D2");
-    } else if (localStorage.getItem("theme") === "dark") {
-      setAccordionSummaryColor("#527a7a");
-    } else if (localStorage.getItem("theme") === "light") {
-      setAccordionSummaryColor("#1976D2");
-    }
-  }
+  const {theme} = useThemeContext();
 
   useEffect(() => {
-    determineAccordionTheme();
   })
 
 
   return (
-    <div>
-      <Accordion defaultExpanded>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1-content"
-          id={accordionId}
-          className="accordionSummaries"
-          sx={{backgroundColor: accordionSummaryColor}}
-        >
-          <Typography sx={{display: "flex", margin: "auto", color: "white"}}>{title}</Typography>
-        </AccordionSummary>
-        <AccordionDetails className='AccordionDetails'>
-          {showTableBool &&
-            <DataTable id="accordionTables" columns={data[0]} rows={data[1]} hideFooterBool={true} columnHeaderDisplayType={"none"} ></DataTable>
-          }
-          {buttonCollection}
-        </AccordionDetails>
-      </Accordion>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline/>
+      <div>
+        <Accordion defaultExpanded>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1-content"
+            id={accordionId}
+            className="accordionSummaries"
+            sx={{backgroundColor: theme}} //This is a spot where theme is messed up
+          >
+            <Typography sx={{display: "flex", margin: "auto", color: "white"}}>{title}</Typography>
+          </AccordionSummary>
+          <AccordionDetails className='AccordionDetails'>
+            {showTableBool &&
+              <DataTable id="accordionTables" columns={data[0]} rows={data[1]} hideFooterBool={true} columnHeaderDisplayType={"none"} ></DataTable>
+            }
+            {buttonCollection}
+          </AccordionDetails>
+        </Accordion>
+      </div>
+
+    </ThemeProvider>
   );
 }

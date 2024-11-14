@@ -1,10 +1,11 @@
 const theme = {
   palette: {
     primary: {
-      main: "#1976D2"
+      main: "#1976D2",
+      sub: "#ffffff"
     },  // Default primary color (you can adjust this if needed)
     secondary: {
-      main: "#282828"
+      main: "#00000"
     }
   },
 };
@@ -27,7 +28,7 @@ export const getDesignTokens = (mode) => ({
       : {
           primary: theme.secondary,       // Primary color for dark mode
           background: {
-            default: "#121212",  // Dark background color
+            default: "#ad8a2a",  // Dark background color
             paper: "#cc3535",    // Paper color for dark mode
           },
           text: {

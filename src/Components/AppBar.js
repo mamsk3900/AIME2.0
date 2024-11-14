@@ -16,7 +16,6 @@ const pagesURLS = ["http://support.private.aspsys.com/", "http://aime.private.as
 
 function ResponsiveAppBar() {
   const { theme } = useThemeContext();
-  const [appBarColor, setAppBarColor] = useState("#1976D2");
   const [checked, setChecked] = useState("");
   function handleButtonClicks(element){
     if (element != window.location.href) {
@@ -29,15 +28,10 @@ function ResponsiveAppBar() {
   function determineTheme() {
     if (!localStorage.getItem("theme")) {
       localStorage.setItem("theme", "light");
-      setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "dark") {
       setChecked(false);
-      document.body.style = "background-color: white;"
-      setAppBarColor("#1976D2");
     } else if (localStorage.getItem("theme") === "light") {
       setChecked(true);
-      document.body.style = "background-color: #262525;"
-      setAppBarColor("#0F0F0F");
     }
   }
   
@@ -54,8 +48,8 @@ function ResponsiveAppBar() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline/>
-      <AppBar position="relative" width="100%" sx={{backgroundColor: theme}}>
-        <Container maxWidth="1" sx={{backgroundColor: appBarColor}}>
+      <AppBar position="relative" width="100%">
+        <Container maxWidth="1">
           <Toolbar disableGutters>
             <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right in magenta'/> 
             <Box id="NavItems" >

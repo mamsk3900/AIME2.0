@@ -11,7 +11,6 @@ import { useThemeContext } from '../theme/ThemeContextProvider';
 
 
 export default function AccordionExpanded({title, data, showTableBool = true, buttonCollection, accordionId}) {
-  const [accordionSummaryColor, setAccordionSummaryColor] = useState("#1976D2");
   const {theme} = useThemeContext();
 
   useEffect(() => {

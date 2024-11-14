@@ -144,7 +144,7 @@ function NodePageAppBar() {
                 {page}
               </Button>
             ))}
-            <NightModeToggle></NightModeToggle>
+            <NightModeToggle checked={checked}/>
           </Box>
         </Toolbar>
       </Container>

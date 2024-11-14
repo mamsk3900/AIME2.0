@@ -13,7 +13,7 @@ const DarkModeSwitch = styled(Switch)(({ theme }) => ({
     transform: 'translateX(6px)',
     '&.Mui-checked': {
       color: '#fff',
-      transform: 'translateX(32px)',
+      transform: 'translateX(34px)',
       '& .MuiSwitch-thumb:before': {
         backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
           '#fff',
@@ -30,7 +30,7 @@ const DarkModeSwitch = styled(Switch)(({ theme }) => ({
   },
   '& .MuiSwitch-thumb': {
     backgroundColor: '#1976D2',
-    width: 32,
+    width: 28,
     height: 32,
     '&::before': {
       content: "''",

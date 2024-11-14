@@ -57,7 +57,7 @@ export default function DataTable({title, rows, columns, hideFooterBool, columnH
       <CssBaseline/>
       <div id="DataGridDiv" >
         <h2 id="AIMETableTitle" style={{textAlign: "center", color: theme}}>{title}</h2>
-        <Paper sx={{ height: "auto", width: '100%', margin:"auto", '& .super-app-theme--header': { backgroundColor: theme}}}>
+        <Paper sx={{ height: "auto", width: '100%', margin:"auto", '& .super-app-theme--header': {color: "white", backgroundColor: theme.palette.primary}}}>
         <StyledDataGrid
         autoHeight
         disableRowSelectionOnClick

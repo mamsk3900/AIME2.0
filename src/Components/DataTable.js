@@ -45,7 +45,7 @@ const StyledDataGrid = styled(DataGrid)(({ theme, oddTableEntryColor, evenTableE
 
 export default function DataTable({title, rows, columns, hideFooterBool, columnHeaderDisplayType}) {
   const { theme } = useThemeContext();
-  const [oddTableEntryColor] = useState(theme.palette.primary.sub); //I need to fix the colors on here but I'm spending too much time on this right now
+  const [oddTableEntryColor] = useState(theme.palette.primary.main); //I need to fix the colors on here but I'm spending too much time on this right now
   const [evenTableEntryColor] = useState(theme.palette.primary.main);
 
   return (

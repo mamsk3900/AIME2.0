@@ -4,7 +4,7 @@ import { useColorTheme } from "./use-color-theme";
 
 // Create a context without TypeScript type annotations
 export const ThemeContext = createContext({
-    mode: "light",  // Fixed typo from "ligth" to "light"
+    mode: "light", 
     toggleColorMode: () => {},
     theme: createTheme(),
 });

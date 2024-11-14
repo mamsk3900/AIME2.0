@@ -25,20 +25,6 @@ function ResponsiveAppBar() {
     }
   };
 
-  function determineTheme() {
-    if (!localStorage.getItem("theme")) {
-      localStorage.setItem("theme", "light");
-    } else if (localStorage.getItem("theme") === "dark") {
-      setChecked(false);
-    } else if (localStorage.getItem("theme") === "light") {
-      setChecked(true);
-    }
-  }
-
-  useEffect(() => {
-  })
-
-
 
   return (
     <ThemeProvider theme={theme}>

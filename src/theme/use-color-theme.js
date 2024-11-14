@@ -3,7 +3,7 @@ import React from "react";
 import theme from "./theme";
 
 export const useColorTheme = () => {
-    const [mode, setMode] = React.useState("light");
+    const [mode, setMode] = React.useState("dark");
 
     const toggleColorMode = () =>
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));

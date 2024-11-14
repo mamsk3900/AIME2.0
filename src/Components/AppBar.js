@@ -34,13 +34,8 @@ function ResponsiveAppBar() {
       setChecked(true);
     }
   }
-  
-  function handleThemeChange() {
-    console.log(theme);
-  }
 
   useEffect(() => {
-    determineTheme();
   })
 
 

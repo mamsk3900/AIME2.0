@@ -4,11 +4,14 @@ import NodePageAppBar from '../Components/NodePageAppBar'
 import AccordionExpanded from '../Components/AccordionExpanded';
 import { Button, Paper, Box } from '@mui/material';
 import DataTable from '../Components/DataTable';
+import { ThemeContextProvider } from '../theme/ThemeContextProvider';
+import { useThemeContext } from "../theme/ThemeContextProvider";
+
 
 function NodePage() {
+    const {theme} = useThemeContext();
     const [paperHTMLContents, setPaperHTMLContents] = useState([]);
     const [paperTextContents, setPaperTextContents] = useState([]);
-
     const [rows, setRows] = useState([]);
     const [columns, setColumns] = useState([]);
     const [buttons, setButtons] = useState([]);
@@ -81,34 +84,35 @@ function NodePage() {
 
 
     return (
-
-        <div id="NodePage">
-            <NodePageAppBar></NodePageAppBar>
-            <div id="clock">
-                <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
-            </div>
-            <div style={{height: "fit-content"}}>
-                <div id="AIMEInfoDiv">
-                    <AccordionExpanded  title={"AIME Info"} data={[["fdsfs"], rows]} accordionId={"AimeInfoAccordion"}/>
+        <ThemeContextProvider>
+            <div id="NodePage">
+                <NodePageAppBar></NodePageAppBar>
+                <div id="clock">
+                    <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>
                 </div>
-                <div id="SystemInfoDiv">
-                    <AccordionExpanded title={"System Info"} data={[[], rows]} accordionId={"SysInfoAccordion"}/>
+                <div style={{height: "fit-content"}}>
+                    <div id="AIMEInfoDiv">
+                        <AccordionExpanded  title={"AIME Info"} data={[["fdsfs"], rows]} accordionId={"AimeInfoAccordion"}/>
+                    </div>
+                    <div id="SystemInfoDiv">
+                        <AccordionExpanded title={"System Info"} data={[[], rows]} accordionId={"SysInfoAccordion"}/>
+                    </div>
                 </div>
+                <div id="buttonDiv">
+                        <Button variant="contained" id="QAButton" className="aimeButtons">Perform QA</Button>
+                        <Button variant="contained" id="JobNumButton" className="aimeButtons">Set Job/RMA# and Nodename</Button>
+                </div>
+                <div id="AIMETestsTable">
+                    <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} data={[columns, rows]} showTableBool={false} buttonCollection={buttons} accordionId={"AimeTestAccordion"}></AccordionExpanded>
+                    <DataTable title={""} rows={rows} columns={columns} hideFooterBool={true}></DataTable>
+                </div>
+                <Box
+                id="logOutputBox"  
+                >
+                    <Paper id="logOutputPaper" elevation={3}>{paperHTMLContents}</Paper>
+                </Box>
             </div>
-            <div id="buttonDiv">
-                    <Button variant="contained" id="QAButton" className="aimeButtons">Perform QA</Button>
-                    <Button variant="contained" id="JobNumButton" className="aimeButtons">Set Job/RMA# and Nodename</Button>
-            </div>
-            <div id="AIMETestsTable">
-                <AccordionExpanded id="AIMETestAccordion" title={"AIME Tests"} data={[columns, rows]} showTableBool={false} buttonCollection={buttons} accordionId={"AimeTestAccordion"}></AccordionExpanded>
-                <DataTable title={""} rows={rows} columns={columns} hideFooterBool={true}></DataTable>
-            </div>
-            <Box
-            id="logOutputBox"  
-            >
-                <Paper id="logOutputPaper" elevation={3}>{paperHTMLContents}</Paper>
-            </Box>
-        </div>
+        </ThemeContextProvider>
     )
 }
 

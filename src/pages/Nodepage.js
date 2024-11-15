@@ -9,6 +9,7 @@ import { useThemeContext } from "../theme/ThemeContextProvider";
 
 
 function NodePage() {
+    
     const {theme} = useThemeContext();
     const [paperHTMLContents, setPaperHTMLContents] = useState([]);
     const [paperTextContents, setPaperTextContents] = useState([]);
@@ -77,7 +78,11 @@ function NodePage() {
             
         setColumns(["test", "status", "start time", "end time", "cycles", "log"]);
 
-        setButtons([<Button variant="contained" sx={{marginRight: "10px"}} >STOP TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained">RESTART AIME TESTS</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={MCEstatus}>MCE</Button>, <Button sx={{marginRight: "10px"}} variant="contained" color={EDACstatus}>EDAC</Button>, <Button sx={{marginRight: "10px"}} variant="contained">STREAM LOG</Button>]);
+        setButtons([<Button variant="contained" sx={{marginRight: "10px", backgroundColor: theme.palette.primary.main}}>STOP TESTS</Button>, //I'm not sure why this works but nothing else does...
+             <Button sx={{marginRight: "10px"}} variant="contained">RESTART AIME TESTS</Button>,
+             <Button sx={{marginRight: "10px"}} variant="contained" color={MCEstatus}>MCE</Button>,
+             <Button sx={{marginRight: "10px"}} variant="contained" color={EDACstatus}>EDAC</Button>,
+             <Button sx={{marginRight: "10px"}} variant="contained">STREAM LOG</Button>]);
         //^This is for when the color of the MCE and EDAC buttons change color
 
         }, [])

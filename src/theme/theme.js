@@ -12,10 +12,10 @@ const theme = {
 
 export const getDesignTokens = (mode) => ({
   palette: {
-    mode,  // This will be either 'light' or 'dark'
+    mode,
     ...(mode === "light"
       ? {
-          primary: theme.primary,          // Primary color for light mode
+          primary: "#1976D2",          // Primary color for light mode
           background: {
             default: "#ba0b0b",  // Light background color
             paper: "#cc3535",    // Paper color for light mode
@@ -26,7 +26,7 @@ export const getDesignTokens = (mode) => ({
           },
         }
       : {
-          primary: theme.secondary,       // Primary color for dark mode
+          primary: "#2E7D32",       // Primary color for dark mode
           background: {
             default: "#ad8a2a",  // Dark background color
             paper: "#cc3535",    // Paper color for dark mode

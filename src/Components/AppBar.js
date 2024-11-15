@@ -5,17 +5,18 @@ import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Logo from '../imgs/logo.png';
-import { useState, useEffect } from 'react';
-import { Tooltip, ThemeProvider, CssBaseline } from '@mui/material';
+import { Tooltip, ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { useThemeContext } from "../theme/ThemeContextProvider";
 import NightModeToggle from "./NightModeToggle";
+import {useColorTheme} from "../theme/use-color-theme"
 
 const pages = ['RT', 'Defective Material', "Wiki", "Sales Documents"];
 const pagesURLS = ["http://support.private.aspsys.com/", "http://aime.private.aspsys.com/defective_material.php", "http://wiki.private.aspsys.com/doku.php", "http://aime.private.aspsys.com/salesdocs/"  ];
 
 
 function ResponsiveAppBar() {
-  const { theme } = useThemeContext();
+  const mode = "dark";
+  const { theme } = useColorTheme();
   function handleButtonClicks(element){
     if (element != window.location.href) {
       window.open(pagesURLS[pages.indexOf(element)], "_blank");
@@ -29,7 +30,7 @@ function ResponsiveAppBar() {
     <ThemeProvider theme={theme}>
       <CssBaseline/>
       <AppBar position="relative" width="100%">
-        <Container maxWidth="1" sx={{backgroundColor: theme.palette.primary}}>
+        <Container maxWidth="1" sx={{backgroundColor: theme.palette.primary.main}}>
           <Toolbar disableGutters>
             <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right in magenta'/> 
             <Box id="NavItems" >

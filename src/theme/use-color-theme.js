@@ -31,6 +31,12 @@ export const useColorTheme = () => {
         },
         evenRow: {
             primary: mode === "light" ? "#1976D2" : "#fff",
+        },
+        accordionSummaries: {
+            primary: mode === "light" ? "#1976D2" : "#445A4D",
+        },
+        conditionalButtons: {
+            primary: mode === "light" ? "#2E7D32" : "#FF0000",//This will be for the MCE EDAC buttons on the node page later on
         }
       },
     }),

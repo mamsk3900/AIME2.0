@@ -14,14 +14,11 @@ import { getDesignTokens } from '../theme/theme';
 export default function AccordionExpanded({title, data, showTableBool = true, buttonCollection, accordionId}) {
   const {theme} = useThemeContext();
 
-  useEffect(() => {
-    console.log(getDesignTokens());
-  })
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline/>
       <div>
-        <Accordion defaultExpanded sx={{backgroundColor: theme.palette.primary.main}}>
+        <Accordion defaultExpanded sx={{backgroundColor: theme.palette.mode.primary}}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"
@@ -31,7 +28,7 @@ export default function AccordionExpanded({title, data, showTableBool = true, bu
           >
             <Typography sx={{display: "flex", margin: "auto", color: "white"}}>{title}</Typography>
           </AccordionSummary>
-          <AccordionDetails className='AccordionDetails'>
+          <AccordionDetails className='AccordionDetails' sx={{backgroundColor: theme.palette.mode.primary}}>
             {showTableBool &&
               <DataTable id="accordionTables" columns={data[0]} rows={data[1]} hideFooterBool={true} columnHeaderDisplayType={"none"} ></DataTable>
             }

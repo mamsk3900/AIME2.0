@@ -64,7 +64,7 @@ export default function DataTable({title, rows, columns, hideFooterBool, columnH
         rows={rows}
         oddTableEntryColor = {oddTableEntryColor}
         evenTableEntryColor = {evenTableEntryColor}
-        sx={{ border: "2px solid lightgray", width: "auto", '& .MuiDataGrid-columnHeader': {display: columnHeaderDisplayType}}}
+        sx={{ border: "2px solid lightgray", width: "auto", '& .MuiDataGrid-columnHeader': {display: columnHeaderDisplayType}, backgroundColor: theme.palette.primary.main}}
         getRowClassName={(params) => `super-app-theme--${params.row.id % 2}`}      
         />
       </Paper>

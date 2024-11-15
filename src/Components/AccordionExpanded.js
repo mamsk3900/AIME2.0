@@ -18,7 +18,7 @@ export default function AccordionExpanded({title, data, showTableBool = true, bu
     <ThemeProvider theme={theme}>
       <CssBaseline/>
       <div>
-        <Accordion defaultExpanded sx={{backgroundColor: theme.palette.mode.primary}}>
+        <Accordion defaultExpanded sx={{backgroundColor: theme.palette.accordionSummaries.primary, color: "#fff"}}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"
@@ -28,7 +28,7 @@ export default function AccordionExpanded({title, data, showTableBool = true, bu
           >
             <Typography sx={{display: "flex", margin: "auto", color: "white"}}>{title}</Typography>
           </AccordionSummary>
-          <AccordionDetails className='AccordionDetails' sx={{backgroundColor: theme.palette.mode.primary}}>
+          <AccordionDetails className='AccordionDetails' sx={{backgroundColor: "#fff"}}>
             {showTableBool &&
               <DataTable id="accordionTables" columns={data[0]} rows={data[1]} hideFooterBool={true} columnHeaderDisplayType={"none"} ></DataTable>
             }

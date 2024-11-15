@@ -1,28 +1,45 @@
-import {createTheme } from "@mui/material";
-import React from "react";
-import theme from "./theme";
+import { createTheme } from '@mui/material/styles';
+import { useState, useEffect, useMemo } from 'react';
 
 export const useColorTheme = () => {
-    const [mode, setMode] = React.useState("dark");
+  // Retrieve the saved theme mode from localStorage or default to 'light'
+  const savedMode = localStorage.getItem("theme") || "light";
+  
+  const [mode, setMode] = useState(savedMode); 
 
-    const toggleColorMode = () =>
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-    
-    const modifiedTheme = React.useMemo(
-        () =>
-            createTheme({
-                ...theme,
-                palette: {
-                    ...theme.palette,
-                    mode,
-                },
-            }),
-            [mode]
-    );
+  // Toggle between light and dark mode
+  const toggleColorMode = () => {
+    const newMode = mode === "light" ? "dark" : "light";
+    setMode(newMode);
+    localStorage.setItem("theme", newMode); // Save the mode in localStorage
+  };
 
-    return {
-        theme: modifiedTheme,
-        mode,
-        toggleColorMode,
-    };
+  // Generate the theme object based on the current mode (light/dark)
+  const theme = useMemo(() => 
+    createTheme({
+      palette: {
+        mode: mode, // Light or dark mode
+        primary: {
+          main: mode === "light" ? "#1976D2" : "#282828", // Blue for light, Red for dark
+          sub: mode === "light" ? "#fff" : "#000",
+        },
+        background: {
+          default: mode === "light" ? "#ffffff" : "#121212", // White background for light, Dark background for dark
+        },
+        text: {
+          primary: mode === "light" ? "#000000" : "#ffffff", // Text color depending on the mode
+        },
+        evenRow: {
+            primary: mode === "light" ? "#1976D2" : "#fff",
+        }
+      },
+    }),
+    [mode] // Ensure the theme is regenerated whenever `mode` changes
+  );
+
+  return {
+    theme,
+    mode,
+    toggleColorMode
+  };
 };

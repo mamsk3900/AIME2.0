@@ -35,7 +35,7 @@ function NodePageAppBar() {
     <ThemeProvider theme={theme}>
       <CssBaseline/>
       <AppBar position="relative" width="100%">
-        <Container maxWidth="1" sx={{backgroundColor: theme}}>
+        <Container maxWidth="1">
           <Toolbar disableGutters>
             <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right, both in magenta'/> 
             <Box id="NavItems" >
@@ -49,7 +49,7 @@ function NodePageAppBar() {
                   {page}
                 </Button>
               ))}
-              <NightModeToggle checked={checked}/>
+              <NightModeToggle checked={checked}></NightModeToggle>
             </Box>
           </Toolbar>
         </Container>

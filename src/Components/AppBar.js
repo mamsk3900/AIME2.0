@@ -16,7 +16,6 @@ const pagesURLS = ["http://support.private.aspsys.com/", "http://aime.private.as
 
 function ResponsiveAppBar() {
   const { theme } = useThemeContext();
-  const [checked, setChecked] = useState("");
   function handleButtonClicks(element){
     if (element != window.location.href) {
       window.open(pagesURLS[pages.indexOf(element)], "_blank");

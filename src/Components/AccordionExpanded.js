@@ -8,20 +8,20 @@ import DataTable from '../Components/DataTable';
 import {useState, useEffect} from 'react'
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { useThemeContext } from '../theme/ThemeContextProvider';
+import { getDesignTokens } from '../theme/theme';
 
 
 export default function AccordionExpanded({title, data, showTableBool = true, buttonCollection, accordionId}) {
   const {theme} = useThemeContext();
 
   useEffect(() => {
+    console.log(getDesignTokens());
   })
-
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline/>
       <div>
-        <Accordion defaultExpanded>
+        <Accordion defaultExpanded sx={{backgroundColor: theme.palette.primary.main}}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"

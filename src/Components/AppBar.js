@@ -29,7 +29,7 @@ function ResponsiveAppBar() {
     <ThemeProvider theme={theme}>
       <CssBaseline/>
       <AppBar position="relative" width="100%">
-        <Container maxWidth="1">
+        <Container maxWidth="1" sx={{backgroundColor: theme.palette.primary}}>
           <Toolbar disableGutters>
             <img src={Logo} id="AspenLogo" alt='The Aspen Systems, Inc. Logo. A retro logo with a blue A with the words Aspen on the left, Systems on the right in magenta'/> 
             <Box id="NavItems" >

@@ -23,7 +23,7 @@ const DarkModeSwitch = styled(Switch)(({ theme }) => ({
         opacity: 1,
         backgroundColor: '#aab4be',
         ...theme.applyStyles('dark', {
-          backgroundColor: '#00',
+          backgroundColor: '#8796A5',
         }),
       },
     },

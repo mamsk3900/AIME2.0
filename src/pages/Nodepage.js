@@ -9,7 +9,6 @@ import { useThemeContext } from "../theme/ThemeContextProvider";
 
 
 function NodePage() {
-    
     const {theme} = useThemeContext();
     const [paperHTMLContents, setPaperHTMLContents] = useState([]);
     const [paperTextContents, setPaperTextContents] = useState([]);
@@ -18,7 +17,7 @@ function NodePage() {
     const [buttons, setButtons] = useState([]);
 
 
-    function clockUpdate() {
+    function clockUpdate() { //This might need to use useLayoutEffect
         let dateSpan = document.getElementById("dateSpan");
         const intervalID = setInterval(() => {
             let date = new Date();
@@ -64,6 +63,7 @@ function NodePage() {
     }
 
     useEffect(() => {
+        
         let MCEstatus="success";
         let EDACstatus="success";
         let windowPathname = window.location.pathname;
@@ -90,7 +90,7 @@ function NodePage() {
 
     return (
         <ThemeContextProvider>
-            <div id="NodePage">
+            <div id="NodePage" style={{backgroundColor: theme.customColors}}>
                 <NodePageAppBar></NodePageAppBar>
                 <div id="clock">
                     <span id="dateSpan">January 01, 1999 at 00:00:00 AM</span>

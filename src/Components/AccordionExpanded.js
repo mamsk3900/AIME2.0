@@ -18,7 +18,7 @@ export default function AccordionExpanded({title, data, showTableBool = true, bu
     <ThemeProvider theme={theme}>
       <CssBaseline/>
       <div>
-        <Accordion defaultExpanded sx={{backgroundColor: theme.palette.accordionSummaries.primary, color: "#fff"}}>
+        <Accordion defaultExpanded sx={{backgroundColor: theme.customColors.accordionSummaries, color: "#fff"}}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"

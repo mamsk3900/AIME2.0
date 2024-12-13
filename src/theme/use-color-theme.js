@@ -29,16 +29,14 @@ export const useColorTheme = () => {
         text: {
           primary: mode === "light" ? "#000000" : "#ffffff", // Text color depending on the mode
         },
-        evenRow: {
-            primary: mode === "light" ? "#1976D2" : "#fff",
-        },
-        accordionSummaries: {
-            primary: mode === "light" ? "#1976D2" : "#445A4D",
-        },
-        conditionalButtons: {
-            primary: mode === "light" ? "#2E7D32" : "#FF0000",//This will be for the MCE EDAC buttons on the node page later on
-        }
       },
+      customColors: {
+        evenRow: mode === "light" ? "#1976D2" : "#fff",
+        accordionSummaries: mode === "light" ? "#1976D2" : "#445A4D",
+        conditionalButtons: mode === "light" ? "#2E7D32" : "#FF0000",//This will be for the MCE EDAC buttons on the node page later on
+        body: mode === "light" ? "#2E7D32" : "#FF0000",//This will be for the MCE EDAC buttons on the node page later on
+      },
+
     }),
     [mode] // Ensure the theme is regenerated whenever `mode` changes
   );

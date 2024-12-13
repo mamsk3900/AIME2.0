@@ -47,7 +47,7 @@ const StyledDataGrid = styled(DataGrid)(({ theme, oddTableEntryColor, evenTableE
 export default function DataTable({title, rows, columns, hideFooterBool, columnHeaderDisplayType}) {
   const { theme } = useThemeContext();
   const [oddTableEntryColor] = useState("#fff"); //I need to fix the colors on here but I'm spending too much time on this right now
-  const [evenTableEntryColor] = useState(theme.palette.evenRow.primary);
+  const [evenTableEntryColor] = useState(theme.customColors.evenRow);
 
   return (
     <ThemeProvider theme={theme}>
@@ -65,7 +65,7 @@ export default function DataTable({title, rows, columns, hideFooterBool, columnH
         rows={rows}
         oddTableEntryColor = {oddTableEntryColor}
         evenTableEntryColor = {evenTableEntryColor}
-        sx={{ border: "2px solid lightgray", width: "auto", '& .MuiDataGrid-columnHeader': {display: columnHeaderDisplayType}, backgroundColor: theme.palette.primary}}
+        sx={{ border: "2px solid lightgray", width: "auto", '& .MuiDataGrid-columnHeader': {display: columnHeaderDisplayType}, backgroundColor: "#fff"}}
         getRowClassName={(params) => `super-app-theme--${params.row.id % 2}`}      
         />
       </Paper>
